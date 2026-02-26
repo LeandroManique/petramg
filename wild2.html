@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFORCE WILD2 - Petram Guns</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tactical: {
+                            black: '#0a0a0a',
+                            dark: '#171717',
+                            red: '#F25C22',
+                            redHover: '#D94D1A',
+                            gray: '#737373',
+                            panel: '#1f1f1f'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', -apple-system, sans-serif; background-color: #0a0a0a; color: white; }
+        .clip-diagonal { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    </style>
+</head>
+<body class="antialiased selection:bg-tactical-red selection:text-white">
+
+    <nav class="fixed w-full z-50 bg-tactical-black/95 backdrop-blur-sm border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-24">
+            <a href="#" class="flex items-center justify-center">
+                <img src="Imagens/logo-petram-branco.png" alt="Petram Guns Logo" class="h-16 w-auto object-contain rounded">
+            </a>
+            <a href="https://www.petramguns.com.br/" class="hidden md:inline-block bg-tactical-red hover:bg-tactical-redHover text-white font-bold py-2 px-6 rounded transition duration-300 uppercase">
+                Quero Comprar WILD2
+            </a>
+        </div>
+    </nav>
+
+    <section class="pt-36 pb-20 md:pt-48 md:pb-32 px-4 relative overflow-hidden clip-diagonal bg-tactical-dark">
+        <div class="absolute inset-0">
+            <img src="Imagens/wild2-4.png" alt="INFORCE WILD2 aplicada em plataforma de arma" class="w-full h-full object-cover opacity-30">
+        </div>
+        <div class="absolute inset-0 bg-black/55"></div>
+        <div class="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-tactical-red via-tactical-black to-tactical-black"></div>
+        <div class="max-w-7xl mx-auto relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                    <span class="bg-tactical-black border border-tactical-red/50 text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-wider">Distribuidor Oficial Petram</span>
+                    <span class="text-tactical-red font-bold tracking-widest text-sm uppercase">Oferta ativa 28% OFF</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 uppercase">
+                    Lanterna <span class="text-tactical-red">INFORCE WILD2</span>
+                </h1>
+                <p class="text-xl text-tactical-gray mb-8 font-light">
+                    Desempenho profissional para defesa e operacoes taticas. Plataforma robusta, operacao ambidestra e feixe de alta intensidade para cenarios de baixa visibilidade.
+                </p>
+                <div class="flex flex-wrap items-end gap-5 mb-8">
+                    <div>
+                        <p class="text-tactical-gray line-through text-lg">R$3.200,00</p>
+                        <p class="text-4xl font-black text-white">R$2.290,00</p>
+                        <p class="text-tactical-gray text-sm mt-1">Economize: R$910,00</p>
+                    </div>
+                    <span class="bg-tactical-red text-white font-black uppercase tracking-wider px-4 py-2 rounded">28% OFF</span>
+                </div>
+                <p class="text-white text-lg font-semibold mb-6">3 x de R$763,33 sem juros</p>
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <a href="https://www.petramguns.com.br/" class="bg-tactical-red hover:bg-tactical-redHover text-white text-lg font-bold py-4 px-8 rounded shadow-lg shadow-tactical-red/30 transition duration-300 w-full sm:w-auto text-center uppercase">
+                        Garantir Minha WILD2
+                    </a>
+                </div>
+                <p class="text-sm text-white/80 mt-6">Oferta sujeita a disponibilidade de estoque no lote promocional.</p>
+            </div>
+            <div class="relative flex flex-col items-center">
+                <div class="absolute inset-0 bg-tactical-red/20 blur-3xl rounded-full"></div>
+
+                <div class="relative z-10 w-full max-w-md bg-gradient-to-tr from-gray-800 to-gray-700 rounded-xl border border-gray-600 p-4 shadow-2xl">
+                    <img id="wild2HeroImage" src="Imagens/wild2-main.png" alt="INFORCE WILD2 - vista principal" class="w-full h-auto object-contain rounded">
+                </div>
+
+                <div class="w-full max-w-md grid grid-cols-3 sm:grid-cols-5 gap-3 mt-4 relative z-10">
+                    <button type="button" class="wild2-thumb bg-tactical-black/80 rounded border border-tactical-red ring-2 ring-tactical-red p-1 transition hover:border-tactical-red" data-src="Imagens/wild2-main.png" data-alt="INFORCE WILD2 - vista principal" aria-label="Ver imagem principal" aria-current="true">
+                        <img src="Imagens/wild2-main.png" alt="Miniatura principal WILD2" class="w-full h-16 object-cover rounded">
+                    </button>
+                    <button type="button" class="wild2-thumb bg-tactical-black/80 rounded border border-white/15 p-1 transition hover:border-tactical-red" data-src="Imagens/wild2-2.png" data-alt="INFORCE WILD2 - vista lateral 1" aria-label="Ver vista lateral 1" aria-current="false">
+                        <img src="Imagens/wild2-2.png" alt="Miniatura lateral 1 WILD2" class="w-full h-16 object-cover rounded">
+                    </button>
+                    <button type="button" class="wild2-thumb bg-tactical-black/80 rounded border border-white/15 p-1 transition hover:border-tactical-red" data-src="Imagens/wild2-3.png" data-alt="INFORCE WILD2 - vista lateral 2" aria-label="Ver vista lateral 2" aria-current="false">
+                        <img src="Imagens/wild2-3.png" alt="Miniatura lateral 2 WILD2" class="w-full h-16 object-cover rounded">
+                    </button>
+                    <button type="button" class="wild2-thumb bg-tactical-black/80 rounded border border-white/15 p-1 transition hover:border-tactical-red" data-src="Imagens/wild2-4.png" data-alt="INFORCE WILD2 em plataforma de uso" aria-label="Ver imagem em plataforma" aria-current="false">
+                        <img src="Imagens/wild2-4.png" alt="Miniatura WILD2 em plataforma" class="w-full h-16 object-cover rounded">
+                    </button>
+                    <button type="button" class="wild2-thumb bg-tactical-black/80 rounded border border-white/15 p-1 transition hover:border-tactical-red" data-src="Imagens/wild2-agua.png" data-alt="INFORCE WILD2 com resistencia a agua" aria-label="Ver resistencia a agua" aria-current="false">
+                        <img src="Imagens/wild2-agua.png" alt="Miniatura resistencia a agua WILD2" class="w-full h-16 object-cover rounded">
+                    </button>
+                </div>
+
+                <div class="relative z-10 mt-6 w-full max-w-md bg-gradient-to-tr from-gray-800 to-gray-700 rounded-xl border border-gray-600 p-8 shadow-2xl">
+                    <h2 class="text-2xl font-black uppercase mb-6">Metricas Operacionais</h2>
+                    <div class="space-y-4">
+                        <div class="bg-black/40 border border-white/10 rounded p-4 flex items-center justify-between gap-4">
+                            <span class="text-tactical-gray uppercase text-sm">Saida de luz</span>
+                            <span class="text-white font-bold text-lg">1000 Lumens</span>
+                        </div>
+                        <div class="bg-black/40 border border-white/10 rounded p-4 flex items-center justify-between gap-4">
+                            <span class="text-tactical-gray uppercase text-sm">Candela</span>
+                            <span class="text-white font-bold text-lg">25.000</span>
+                        </div>
+                        <div class="bg-black/40 border border-white/10 rounded p-4 flex items-center justify-between gap-4">
+                            <span class="text-tactical-gray uppercase text-sm">Distancia</span>
+                            <span class="text-white font-bold text-lg">316m / 1036ft</span>
+                        </div>
+                        <div class="bg-black/40 border border-white/10 rounded p-4 flex items-center justify-between gap-4">
+                            <span class="text-tactical-gray uppercase text-sm">Autonomia em alta</span>
+                            <span class="text-white font-bold text-lg">1,5 horas</span>
+                        </div>
+                    </div>
+                    <p class="text-tactical-gray text-sm mt-6">Feixe definido com ponto quente equilibrado e dispersao lateral funcional para controle de ambiente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 bg-tactical-black">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-5 text-center">Descricao do Produto</h2>
+            <p class="text-tactical-gray text-lg max-w-5xl mx-auto text-center">
+                A Inforce WILD2 e uma lanterna tatica de alto desempenho para pistolas com trilho padrao Picatinny ou Universal (MIL-STD-1913). Com 1000 lumens, entrega iluminacao intensa e controlada para defesa pessoal, aplicacao profissional e operacoes em baixa visibilidade. Seu corpo em aluminio 6061-T6 com acabamento Tipo III MIL-SPEC oferece resistencia superior a impacto, corrosao, poeira, areia, sujeira e agua.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 bg-tactical-dark">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">Caracteristicas Tecnicas</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-bolt text-tactical-red mr-2"></i>Potencia: 1000 lumens</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-battery-full text-tactical-red mr-2"></i>Autonomia: ate 1,5 horas</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-ruler-horizontal text-tactical-red mr-2"></i>Distancia de alcance: ~140m (ponto quente) / 316m maximo</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-hand-pointer text-tactical-red mr-2"></i>Modos: constante, momentaneo e estrobo</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-gun text-tactical-red mr-2"></i>Montagem: trilho 1913 ou Glock Universal</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-left-right text-tactical-red mr-2"></i>Acionamento ambidestro por paddles laterais</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-shield-halved text-tactical-red mr-2"></i>Material: aluminio 6061-T6</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-screwdriver-wrench text-tactical-red mr-2"></i>Acabamento: anodizacao dura MIL-SPEC Tipo III</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-water text-tactical-red mr-2"></i>Protecao: IPX7/IPX8 ate 20m (66ft)</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 bg-tactical-panel border-y border-white/5">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
+            <div class="bg-tactical-black border border-white/10 rounded-xl overflow-hidden">
+                <img src="Imagens/wild2-3.png" alt="Corpo da INFORCE WILD2 em aluminio 6061-T6" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <p class="text-tactical-red text-xs font-bold uppercase tracking-[0.2em] mb-2">Construcao Profissional</p>
+                    <h3 class="text-2xl font-bold mb-2">Aluminio 6061-T6 com acabamento MIL-SPEC</h3>
+                    <p class="text-tactical-gray">Estrutura robusta para uso real, com resistencia superior a impacto, abrasao e ambiente hostil.</p>
+                </div>
+            </div>
+            <div class="bg-tactical-black border border-white/10 rounded-xl overflow-hidden">
+                <img src="Imagens/wild2-agua.png" alt="INFORCE WILD2 em condicao de umidade e agua" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <p class="text-tactical-red text-xs font-bold uppercase tracking-[0.2em] mb-2">Confiabilidade Ambiental</p>
+                    <h3 class="text-2xl font-bold mb-2">Resistencia a agua ate 20 metros</h3>
+                    <p class="text-tactical-gray">Projetada para manter operacao consistente em chuva intensa, umidade extrema e submersao controlada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="especificacoes" class="py-20 px-4 bg-tactical-black">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-10 text-center">Especificacoes Tecnicas</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-tactical-gray/30 text-tactical-red">
+                            <th class="py-4 px-6 font-bold uppercase tracking-wider">Parametro</th>
+                            <th class="py-4 px-6 font-bold uppercase tracking-wider">Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-tactical-gray">
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Potencia em alta</td><td class="py-4 px-6">1.000 Lumens</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Intensidade maxima do feixe</td><td class="py-4 px-6">25.000 Candela</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Distancia</td><td class="py-4 px-6">1.036 pes / 316 metros</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Autonomia em alta</td><td class="py-4 px-6">1,5 horas</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Baterias</td><td class="py-4 px-6">Duas 123A inclusas</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Peso com baterias</td><td class="py-4 px-6">4,7 oz / 135,0 g</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Comprimento</td><td class="py-4 px-6">3,5 in / 8,9 cm</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Diametro frontal</td><td class="py-4 px-6">1,1 in / 2,8 cm</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Acionamento</td><td class="py-4 px-6">Alavancas ambidestras</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Funcoes</td><td class="py-4 px-6">Constante / Momentaneo / Estrobo</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Sistema de bloqueio</td><td class="py-4 px-6">Ativado pela alavanca</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Montagem</td><td class="py-4 px-6">Trilho 1913 ou Glock Universal</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Construcao</td><td class="py-4 px-6">Aluminio 6061-T6</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Acabamento</td><td class="py-4 px-6">Anodizacao dura MIL-SPEC</td></tr>
+                        <tr class="hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Resistencia a agua</td><td class="py-4 px-6">Ate 66 pes / 20 metros</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-tactical-panel border-y border-white/5">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
+            <div class="p-10 md:p-14">
+                <h3 class="text-2xl font-bold mb-8 uppercase tracking-wider">Instalacao da Bateria</h3>
+                <ul class="space-y-6 text-white text-lg font-light">
+                    <li class="flex items-start gap-4"><span class="font-bold">1.</span><span>Destrave a tampa da bateria pressionando o botao na placa superior.</span></li>
+                    <li class="flex items-start gap-4"><span class="font-bold">2.</span><span>Puxe a tampa e rotacione em torno do pino de aco para abrir o compartimento.</span></li>
+                    <li class="flex items-start gap-4"><span class="font-bold">3.</span><span>Insira duas baterias 123A novas, feche a tampa e pressione ate travar com firmeza.</span></li>
+                </ul>
+            </div>
+            <div class="p-10 md:p-14 bg-[#242424]">
+                <h3 class="text-2xl font-bold mb-8 uppercase tracking-wider">Montagem</h3>
+                <ul class="space-y-6 text-white text-lg font-light">
+                    <li class="flex items-start gap-4"><span class="font-bold">1.</span><span>Monte a WILD2 em segundos em armas com trilho 1913 (ex: P320) ou Glock Universal (Gen 3/Gen 4).</span></li>
+                    <li class="flex items-start gap-4"><span class="font-bold">2.</span><span>Alterne entre os trilhos invertendo a barra transversal patenteada INFORCE na placa superior de montagem.</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="downloads" class="py-16 px-4 bg-tactical-black border-y border-white/10">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+            <a href="Manual/IF71001_WILD2_Manual.pdf" target="_blank" rel="noopener noreferrer" class="bg-tactical-panel border border-white/15 hover:border-tactical-red transition rounded-xl p-8">
+                <div class="text-tactical-red text-sm font-bold uppercase tracking-wider mb-3">Arquivos do Produto</div>
+                <h3 class="text-2xl font-bold mb-3"><i class="fa-solid fa-file-pdf mr-2 text-tactical-red"></i>Manual do Produto</h3>
+                <p class="text-tactical-gray">Acesse o manual completo com operacao, seguranca, montagem e manutencao.</p>
+            </a>
+            <a href="#especificacoes" class="bg-tactical-panel border border-white/15 hover:border-tactical-red transition rounded-xl p-8">
+                <div class="text-tactical-red text-sm font-bold uppercase tracking-wider mb-3">Arquivos do Produto</div>
+                <h3 class="text-2xl font-bold mb-3"><i class="fa-solid fa-table-list mr-2 text-tactical-red"></i>Especificacoes Tecnicas</h3>
+                <p class="text-tactical-gray">Consulte a tabela tecnica completa com desempenho, dimensoes e arquitetura.</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 bg-tactical-dark border-t border-white/5">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-5">Confianca para Uso Real</h2>
+            <p class="text-tactical-gray text-lg mb-8">
+                Construida para uso profissional, a WILD2 combina leveza (4.7 oz), robustez estrutural e ativacao ambidestra para resposta rapida sob estresse.
+            </p>
+            <a href="https://www.petramguns.com.br/" class="inline-block bg-tactical-red hover:bg-tactical-redHover text-white text-lg font-bold py-4 px-10 rounded transition duration-300 uppercase">
+                Falar com Especialista Petram
+            </a>
+        </div>
+    </section>
+
+    <section id="comprar" class="py-24 px-4 bg-tactical-red relative overflow-hidden text-center">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h2 class="text-4xl md:text-5xl font-black mb-6 uppercase">Garanta a WILD2 no lote promocional</h2>
+            <p class="text-xl mb-8 font-medium">Lanterna Inforce WILD2 - Desempenho Profissional</p>
+            <div class="bg-tactical-black/80 backdrop-blur border border-white/20 p-8 rounded-xl inline-block mb-4">
+                <p class="text-tactical-gray text-lg line-through mb-2">R$3.200,00</p>
+                <div class="text-5xl font-black text-white mb-2">R$2.290,00</div>
+                <p class="text-white font-black uppercase tracking-wider mb-2">28% OFF</p>
+                <p class="text-tactical-gray text-sm mb-6">Economize R$910,00 | 3 x de R$763,33 sem juros</p>
+                <a href="https://www.petramguns.com.br/" class="inline-block bg-white text-tactical-red hover:bg-gray-200 text-xl font-black py-5 px-12 rounded-lg shadow-2xl transition duration-300 transform hover:scale-105 w-full sm:w-auto uppercase text-center">
+                    Comprar Agora
+                </a>
+            </div>
+            <p class="text-white/90 text-sm mt-4">Oferta sujeita a disponibilidade de estoque e variacao comercial.</p>
+        </div>
+    </section>
+
+    <footer class="bg-black py-8 text-center border-t border-white/10">
+        <div class="flex flex-col items-center gap-4 mb-4">
+            <img src="Imagens/logo-petram-branco.png" alt="Petram Guns" class="h-10 w-auto opacity-60 object-contain">
+        </div>
+        <div class="text-tactical-gray text-sm">
+            &copy; 2026 PETRAM GUNS. Distribuidor oficial INFORCE no Brasil. Todos os direitos reservados.
+        </div>
+        <div class="mt-5">
+            <a href="https://www.petramguns.com.br/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white/80 hover:text-white text-sm font-semibold py-2 px-5 rounded transition duration-300">
+                <i class="fa-solid fa-globe"></i>
+                Visitar Site Petram Guns
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        (() => {
+            const mainImage = document.getElementById('wild2HeroImage');
+            const thumbnails = document.querySelectorAll('.wild2-thumb');
+
+            if (!mainImage || !thumbnails.length) return;
+
+            thumbnails.forEach((thumb) => {
+                thumb.addEventListener('click', () => {
+                    const nextSrc = thumb.getAttribute('data-src');
+                    const nextAlt = thumb.getAttribute('data-alt') || mainImage.alt;
+
+                    if (!nextSrc) return;
+
+                    mainImage.src = nextSrc;
+                    mainImage.alt = nextAlt;
+
+                    thumbnails.forEach((item) => {
+                        item.classList.remove('ring-2', 'ring-tactical-red', 'border-tactical-red');
+                        item.classList.add('border-white/15');
+                        item.setAttribute('aria-current', 'false');
+                    });
+
+                    thumb.classList.remove('border-white/15');
+                    thumb.classList.add('ring-2', 'ring-tactical-red', 'border-tactical-red');
+                    thumb.setAttribute('aria-current', 'true');
+                });
+            });
+        })();
+    </script>
+
+</body>
+</html>
