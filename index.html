@@ -1,311 +1,510 @@
-﻿<!DOCTYPE html>
-<html lang="pt-PT">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INFORCE WILD1 - Petram Guns</title>
+    <title>Petram Guns | Lanternas INFORCE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         tactical: {
-                            black: '#0a0a0a',
-                            dark: '#171717',
-                            red: '#F25C22',
-                            redHover: '#D94D1A',
-                            gray: '#737373',
-                            panel: '#1f1f1f'
+                            black: "#0a0a0a",
+                            dark: "#171717",
+                            red: "#F25C22",
+                            redHover: "#D94D1A",
+                            gray: "#8a8a8a",
+                            panel: "#1f1f1f"
                         }
                     }
                 }
             }
-        }
+        };
     </script>
     <style>
-        body { font-family: 'Inter', -apple-system, sans-serif; background-color: #0a0a0a; color: white; }
-        .clip-diagonal { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+        :root {
+            --bg-grid: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            font-family: "Rajdhani", sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            background-image:
+                linear-gradient(var(--bg-grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        h1, h2, h3 {
+            font-family: "Bebas Neue", sans-serif;
+            letter-spacing: 0.04em;
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 20% 20%, rgba(242, 92, 34, 0.38), rgba(10, 10, 10, 0.2) 48%, rgba(10, 10, 10, 0.95) 85%);
+        }
+
+        .card-edge {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-edge::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+        }
+
+        .chat-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-scroll::-webkit-scrollbar-track {
+            background: #111111;
+        }
+
+        .chat-scroll::-webkit-scrollbar-thumb {
+            background: #313131;
+            border-radius: 999px;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-tactical-red selection:text-white">
 
-    <nav class="fixed w-full z-50 bg-tactical-black/95 backdrop-blur-sm border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-24">
-            <div class="flex items-center gap-3">
-                <a href="#" class="flex items-center justify-center">
-                    <img src="Imagens/logo-petram-branco.png" alt="Petram Guns Logo" class="h-16 w-auto object-contain rounded">
-                </a>
+    <nav class="fixed w-full z-40 bg-tactical-black/90 backdrop-blur border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <img src="Imagens/logo-petram-branco.png" alt="Petram Guns" class="h-12 w-auto object-contain">
+                <span class="hidden sm:inline text-white/80 text-sm tracking-[0.2em] uppercase">Lanternas INFORCE</span>
+            </a>
+            <div class="hidden md:flex items-center gap-6 text-sm uppercase tracking-wider text-white/80">
+                <a href="#produtos" class="hover:text-white transition">Produtos</a>
+                <a href="#comparativo" class="hover:text-white transition">Comparativo</a>
+                <a href="#ia-chat" class="hover:text-white transition">IA Especialista</a>
             </div>
-            <a href="https://www.petramguns.com.br/produtos/lanterna-inforce-wild1-pistol-mounted-light-500-lumens-white-light/" class="hidden md:inline-block bg-tactical-red hover:bg-tactical-redHover text-white font-bold py-2 px-6 rounded transition duration-300">
-                GARANTIR DESCONTO
+            <a href="https://wa.me/555195527203?text=Ola%20Limana%2C%20quero%20atendimento%20sobre%20as%20lanternas%20INFORCE." target="_blank" rel="noopener noreferrer" class="bg-tactical-red hover:bg-tactical-redHover text-white font-bold py-2 px-4 rounded uppercase text-sm transition">
+                WhatsApp Limana
             </a>
         </div>
     </nav>
 
-    <section class="pt-36 pb-20 md:pt-48 md:pb-32 px-4 relative overflow-hidden clip-diagonal bg-tactical-dark">
-        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-tactical-red via-tactical-black to-tactical-black"></div>
-        <div class="max-w-7xl mx-auto relative z-10 grid md:grid-cols-2 gap-12 items-center">
+    <header class="pt-28 pb-20 px-4 hero-glow border-b border-white/5">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
             <div>
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="bg-tactical-black border border-tactical-red/50 text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-wider">Distribuidor Oficial</span>
-                    <span class="text-tactical-red font-bold tracking-widest text-sm uppercase">Estoque Limitado â€¢ 32% OFF</span>
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                    <span class="bg-tactical-black/80 border border-tactical-red/60 text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-wider">Distribuidor Oficial INFORCE</span>
+                    <span class="text-tactical-red font-bold text-sm uppercase tracking-[0.18em]">WILD1 • WMLx Gen 3 • WILD2</span>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6 uppercase">
-                    Domine a <span class="text-tactical-red">EscuridÃ£o.</span>
+                <h1 class="text-5xl md:text-7xl leading-[0.95] mb-6 uppercase">
+                    Escolha a <span class="text-tactical-red">lanterna certa</span> para sua missao
                 </h1>
-                <p class="text-xl text-tactical-gray mb-8 font-light">
-                    Superioridade tÃ¡tica em fraÃ§Ãµes de segundo. A lanterna <strong class="text-white">Inforce WILD1</strong> entrega iluminaÃ§Ã£o de grau militar e acionamento ambidestro patenteado.
+                <p class="text-xl text-tactical-gray max-w-2xl mb-8">
+                    Compare WILD1, WMLx White Gen 3 e WILD2 em um unico lugar. Veja diferencas reais de potencia, autonomia, montagem e preco promocional.
                 </p>
-                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8">
-                    <div>
-                        <span class="text-tactical-gray line-through text-lg">R$ 2.800,00</span>
-                        <div class="text-4xl font-black text-white">R$ 1.900,00</div>
-                    </div>
-                    <a href="https://www.petramguns.com.br/produtos/lanterna-inforce-wild1-pistol-mounted-light-500-lumens-white-light/" class="bg-tactical-red hover:bg-tactical-redHover text-white text-lg font-bold py-4 px-8 rounded shadow-lg shadow-tactical-red/30 transition duration-300 w-full sm:w-auto text-center">
-                        COMPRAR AGORA
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#produtos" class="bg-tactical-red hover:bg-tactical-redHover text-white font-bold py-4 px-8 rounded uppercase tracking-wide text-center transition">
+                        Ver os 3 produtos
+                    </a>
+                    <a href="#ia-chat" class="border border-white/25 hover:border-white/50 text-white font-bold py-4 px-8 rounded uppercase tracking-wide text-center transition">
+                        Consultar IA Especialista
                     </a>
                 </div>
             </div>
-            <div class="relative flex flex-col items-center justify-center">
-                <div class="absolute inset-0 bg-tactical-red/20 blur-3xl rounded-full"></div>
-                <div class="w-full max-w-md bg-gradient-to-tr from-gray-800 to-gray-700 rounded-lg border border-gray-600 flex items-center justify-center relative z-10 shadow-2xl overflow-hidden p-4">
-                    <img id="heroProductImage" src="Imagens/wild1-hero-produto-1.png" alt="Inforce WILD1 - vista 1" class="w-full h-auto object-contain">
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div class="card-edge bg-tactical-panel rounded-xl p-6">
+                    <p class="text-tactical-red text-xs uppercase tracking-[0.2em] mb-2">Potencia maxima</p>
+                    <p class="text-4xl font-bold">1100</p>
+                    <p class="text-tactical-gray">lumens (WMLx Gen 3)</p>
                 </div>
-                <div class="w-full max-w-md grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 relative z-10">
-                    <button type="button" class="hero-thumb bg-tactical-black/80 rounded border border-tactical-red ring-2 ring-tactical-red p-1 transition hover:border-tactical-red" data-src="Imagens/wild1-hero-produto-1.png" data-alt="Inforce WILD1 - vista 1" aria-label="Ver imagem 1" aria-current="true">
-                        <img src="Imagens/wild1-hero-produto-1.png" alt="Miniatura vista 1" class="w-full h-20 object-cover rounded">
-                    </button>
-                    <button type="button" class="hero-thumb bg-tactical-black/80 rounded border border-white/15 p-1 transition hover:border-tactical-red" data-src="Imagens/wild1-hero-produto-2.png" data-alt="Inforce WILD1 - vista 2" aria-label="Ver imagem 2" aria-current="false">
-                        <img src="Imagens/wild1-hero-produto-2.png" alt="Miniatura vista 2" class="w-full h-20 object-cover rounded">
-                    </button>
-                    <button type="button" class="hero-thumb bg-tactical-black/80 rounded border border-white/15 p-1 transition hover:border-tactical-red" data-src="Imagens/wild1-hero-produto-3.png" data-alt="Inforce WILD1 - vista 3" aria-label="Ver imagem 3" aria-current="false">
-                        <img src="Imagens/wild1-hero-produto-3.png" alt="Miniatura vista 3" class="w-full h-20 object-cover rounded">
-                    </button>
-                    <button type="button" class="hero-thumb bg-tactical-black/80 rounded border border-white/15 p-1 transition hover:border-tactical-red" data-src="Imagens/wild1-hero-produto-agua.png" data-alt="Inforce WILD1 - resistÃªncia Ã  Ã¡gua" aria-label="Ver imagem resistÃªncia Ã  Ã¡gua" aria-current="false">
-                        <img src="Imagens/wild1-hero-produto-agua.png" alt="Miniatura resistÃªncia Ã  Ã¡gua" class="w-full h-20 object-cover rounded">
-                    </button>
+                <div class="card-edge bg-tactical-panel rounded-xl p-6">
+                    <p class="text-tactical-red text-xs uppercase tracking-[0.2em] mb-2">Maior autonomia</p>
+                    <p class="text-4xl font-bold">2h</p>
+                    <p class="text-tactical-gray">em alta performance</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 px-4 bg-tactical-black">
-        <div class="max-w-7xl mx-auto text-center max-w-3xl">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">O Contexto Operacional: Segundos Custam Vidas</h2>
-            <p class="text-tactical-gray text-lg mb-8">
-                Em situaÃ§Ãµes de alto estresse, falhas de equipamento e acionamentos complexos sÃ£o fatais.
-                <strong class="text-white">O Objetivo:</strong> A WILD1 foi concebida para transiÃ§Ãµes naturais do dedo entre o punho da pistola, a alavanca de acionamento e o gatilho. Obtenha luz imediata e controle absoluto da sua plataforma de tiro.
-            </p>
-        </div>
-    </section>
-
-    <section class="py-20 px-4 bg-tactical-dark">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center border-b border-tactical-gray/30 pb-4 inline-block mx-auto">Etapas de InstalaÃ§Ã£o e OperaÃ§Ã£o</h2>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="bg-tactical-black p-8 rounded border border-tactical-gray/20 hover:border-tactical-red transition">
-                    <div class="text-tactical-red text-4xl font-black mb-4">01</div>
-                    <h3 class="text-xl font-bold mb-2">Posicionamento</h3>
-                    <p class="text-tactical-gray">Encaixe a lanterna na ranhura desejada da calha (trilho 1913 ou Universal) da sua pistola.</p>
+                <div class="card-edge bg-tactical-panel rounded-xl p-6">
+                    <p class="text-tactical-red text-xs uppercase tracking-[0.2em] mb-2">Melhor oferta atual</p>
+                    <p class="text-4xl font-bold">32% OFF</p>
+                    <p class="text-tactical-gray">WILD1 em promocao</p>
                 </div>
-                <div class="bg-tactical-black p-8 rounded border border-tactical-gray/20 hover:border-tactical-red transition">
-                    <div class="text-tactical-red text-4xl font-black mb-4">02</div>
-                    <h3 class="text-xl font-bold mb-2">FixaÃ§Ã£o</h3>
-                    <p class="text-tactical-gray">Aperte o parafuso lateral com uma chave plana atÃ© a garra travar firmemente no equipamento.</p>
-                </div>
-                <div class="bg-tactical-black p-8 rounded border border-tactical-gray/20 hover:border-tactical-red transition">
-                    <div class="text-tactical-red text-4xl font-black mb-4">03</div>
-                    <h3 class="text-xl font-bold mb-2">Luz Constante</h3>
-                    <p class="text-tactical-gray">Pressione qualquer uma das alavancas laterais rapidamente para ativar e manter a luz ligada.</p>
-                </div>
-                <div class="bg-tactical-black p-8 rounded border border-tactical-gray/20 hover:border-tactical-red transition">
-                    <div class="text-tactical-red text-4xl font-black mb-4">04</div>
-                    <h3 class="text-xl font-bold mb-2">Luz MomentÃ¢nea</h3>
-                    <p class="text-tactical-gray">Pressione e segure por mais de 0,5s. A luz desliga instantaneamente ao aliviar a pressÃ£o.</p>
+                <div class="card-edge bg-tactical-panel rounded-xl p-6">
+                    <p class="text-tactical-red text-xs uppercase tracking-[0.2em] mb-2">Atendimento especializado</p>
+                    <p class="text-4xl font-bold">1:1</p>
+                    <p class="text-tactical-gray">via especialista Limana</p>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <section class="bg-tactical-panel border-y border-white/5">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
-            <div class="p-12 md:p-16 flex flex-col justify-center">
-                <h3 class="text-2xl font-bold mb-8 text-white uppercase tracking-wider">SubstituiÃ§Ã£o da Bateria</h3>
-                <ul class="space-y-6 text-white text-lg font-light">
-                    <li class="flex items-start gap-4">
-                        <span class="font-bold">1.</span>
-                        <span>Remova a lanterna da arma de fogo antes de substituir a bateria.</span>
-                    </li>
-                    <li class="flex items-start gap-4">
-                        <span class="font-bold">2.</span>
-                        <span>Desaperte a cabeÃ§a da lanterna pela coroa (bezel).</span>
-                    </li>
-                    <li class="flex items-start gap-4">
-                        <span class="font-bold">3.</span>
-                        <span>Insira uma bateria CR123 na lanterna.</span>
-                    </li>
-                    <li class="flex items-start gap-4">
-                        <span class="font-bold">4.</span>
-                        <span>Aperte a cabeÃ§a da lanterna de volta no lugar.</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="p-12 md:p-16 flex items-center justify-center bg-[#242424]">
-                <div class="w-full h-auto flex items-center justify-center">
-                    <img src="Imagens/wild1-troca-bateria.png" alt="Troca de Bateria WILD1" class="max-w-full h-auto object-contain rounded drop-shadow-2xl">
+    <main>
+        <section id="produtos" class="py-20 px-4 bg-tactical-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-end justify-between gap-4 mb-10">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl mb-2 uppercase">Modelos INFORCE em Destaque</h2>
+                        <p class="text-tactical-gray text-lg">Compare especificacoes, preco e perfil de uso para escolher o modelo ideal.</p>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-6">
+                    <article class="card-edge bg-tactical-panel rounded-2xl overflow-hidden">
+                        <img src="Imagens/wild1-hero-produto-1.png" alt="Lanterna INFORCE WILD1" class="w-full h-56 object-cover bg-black/40">
+                        <div class="p-6">
+                            <p class="text-xs text-tactical-red uppercase tracking-[0.2em] mb-2">Pistola compacta</p>
+                            <h3 class="text-3xl uppercase mb-1">WILD1</h3>
+                            <p class="text-tactical-gray mb-4">1000 lumens, 25.000 candela, acionamento ambidestro e montagem rapida.</p>
+                            <div class="flex items-center justify-between mb-5">
+                                <div>
+                                    <p class="text-sm text-tactical-gray line-through">R$ 2.800,00</p>
+                                    <p class="text-2xl font-bold">R$ 1.900,00</p>
+                                </div>
+                                <span class="bg-tactical-red text-white text-xs font-black px-3 py-2 rounded uppercase">32% OFF</span>
+                            </div>
+                            <a href="wild1.html" class="block bg-tactical-red hover:bg-tactical-redHover text-center text-white font-bold py-3 rounded uppercase transition">Abrir Landing WILD1</a>
+                        </div>
+                    </article>
+
+                    <article class="card-edge bg-tactical-panel rounded-2xl overflow-hidden">
+                        <img src="Imagens/wmlx-white-4.png" alt="Lanterna INFORCE WMLx White Gen 3" class="w-full h-56 object-cover bg-black/40">
+                        <div class="p-6">
+                            <p class="text-xs text-tactical-red uppercase tracking-[0.2em] mb-2">Rifle / PCC</p>
+                            <h3 class="text-3xl uppercase mb-1">WMLx White Gen 3</h3>
+                            <p class="text-tactical-gray mb-4">1100 lumens, 25.000 candela e 2h de autonomia para uso de alta exigencia.</p>
+                            <div class="flex items-center justify-between mb-5">
+                                <div>
+                                    <p class="text-sm text-tactical-gray line-through">R$ 2.459,00</p>
+                                    <p class="text-2xl font-bold">R$ 2.099,00</p>
+                                </div>
+                                <span class="bg-tactical-red text-white text-xs font-black px-3 py-2 rounded uppercase">15% OFF</span>
+                            </div>
+                            <a href="wmlx-white-gen3.html" class="block bg-tactical-red hover:bg-tactical-redHover text-center text-white font-bold py-3 rounded uppercase transition">Abrir Landing WMLx</a>
+                        </div>
+                    </article>
+
+                    <article class="card-edge bg-tactical-panel rounded-2xl overflow-hidden">
+                        <img src="Imagens/wild2-main.png" alt="Lanterna INFORCE WILD2" class="w-full h-56 object-cover bg-black/40">
+                        <div class="p-6">
+                            <p class="text-xs text-tactical-red uppercase tracking-[0.2em] mb-2">Defesa e operacao tatica</p>
+                            <h3 class="text-3xl uppercase mb-1">WILD2</h3>
+                            <p class="text-tactical-gray mb-4">1000 lumens, 25.000 candela, trilho 1913/Glock e funcoes constante, momentaneo e estrobo.</p>
+                            <div class="flex items-center justify-between mb-5">
+                                <div>
+                                    <p class="text-sm text-tactical-gray line-through">R$ 3.200,00</p>
+                                    <p class="text-2xl font-bold">R$ 2.290,00</p>
+                                </div>
+                                <span class="bg-tactical-red text-white text-xs font-black px-3 py-2 rounded uppercase">28% OFF</span>
+                            </div>
+                            <a href="wild2.html" class="block bg-tactical-red hover:bg-tactical-redHover text-center text-white font-bold py-3 rounded uppercase transition">Abrir Landing WILD2</a>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="py-20 px-4 bg-tactical-black">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center">Recursos TÃ©cnicos / EspecificaÃ§Ãµes</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="border-b border-tactical-gray/30 text-tactical-red">
-                            <th class="py-4 px-6 font-bold uppercase tracking-wider">CaracterÃ­stica</th>
-                            <th class="py-4 px-6 font-bold uppercase tracking-wider">EspecificaÃ§Ã£o TÃ©cnica</th>
-                            <th class="py-4 px-6 font-bold uppercase tracking-wider">Vantagem TÃ¡tica</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-tactical-gray">
-                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition">
-                            <td class="py-4 px-6 text-white font-medium"><i class="fa-solid fa-bolt mr-3 text-tactical-red"></i>PotÃªncia e Alcance</td>
-                            <td class="py-4 px-6">1000 Lumens / 25.000 Candelas / 312 Metros</td>
-                            <td class="py-4 px-6">Ponto quente concentrado ideal para identificaÃ§Ã£o imediata de alvos.</td>
-                        </tr>
-                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition">
-                            <td class="py-4 px-6 text-white font-medium"><i class="fa-solid fa-shield-halved mr-3 text-tactical-red"></i>ConstruÃ§Ã£o</td>
-                            <td class="py-4 px-6">AlumÃ­nio 6061-T6 / AnodizaÃ§Ã£o MIL-SPEC</td>
-                            <td class="py-4 px-6">ResistÃªncia extrema a impactos e abrasÃ£o em ambientes hostis.</td>
-                        </tr>
-                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition">
-                            <td class="py-4 px-6 text-white font-medium"><i class="fa-solid fa-battery-full mr-3 text-tactical-red"></i>Autonomia</td>
-                            <td class="py-4 px-6">AtÃ© 1.5 horas (Bateria CR123 inclusa)</td>
-                            <td class="py-4 px-6">OperaÃ§Ã£o prolongada garantida logo apÃ³s a remoÃ§Ã£o da embalagem.</td>
-                        </tr>
-                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition">
-                            <td class="py-4 px-6 text-white font-medium"><i class="fa-solid fa-hand-pointer mr-3 text-tactical-red"></i>Ergonomia</td>
-                            <td class="py-4 px-6">Alavancas Ambidestras (Paddles)</td>
-                            <td class="py-4 px-6">Controlo instintivo para destros e canhotos em qualquer Ã¢ngulo.</td>
-                        </tr>
-                        <tr class="hover:bg-tactical-dark transition">
-                            <td class="py-4 px-6 text-white font-medium"><i class="fa-solid fa-water mr-3 text-tactical-red"></i>VedaÃ§Ã£o</td>
-                            <td class="py-4 px-6">Ã€ prova de Ã¡gua atÃ© 20 metros (66 pÃ©s)</td>
-                            <td class="py-4 px-6">Confiabilidade operacional absoluta em submersÃ£o.</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <section id="comparativo" class="py-20 px-4 bg-tactical-dark border-y border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-4xl md:text-5xl text-center mb-10 uppercase">Comparativo Tecnico Rapido</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full min-w-[820px] border-collapse">
+                        <thead>
+                            <tr class="text-left border-b border-white/20 text-tactical-red uppercase text-sm tracking-wider">
+                                <th class="py-4 px-4">Modelo</th>
+                                <th class="py-4 px-4">Lumens</th>
+                                <th class="py-4 px-4">Candela</th>
+                                <th class="py-4 px-4">Alcance</th>
+                                <th class="py-4 px-4">Autonomia</th>
+                                <th class="py-4 px-4">Preco Atual</th>
+                                <th class="py-4 px-4">Landing</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-white/90">
+                            <tr class="border-b border-white/10 hover:bg-black/20 transition">
+                                <td class="py-4 px-4 font-bold">INFORCE WILD1</td>
+                                <td class="py-4 px-4">1000</td>
+                                <td class="py-4 px-4">25.000</td>
+                                <td class="py-4 px-4">312m</td>
+                                <td class="py-4 px-4">1,5h</td>
+                                <td class="py-4 px-4 text-tactical-red font-bold">R$ 1.900,00</td>
+                                <td class="py-4 px-4"><a href="wild1.html" class="underline hover:text-tactical-red">Abrir</a></td>
+                            </tr>
+                            <tr class="border-b border-white/10 hover:bg-black/20 transition">
+                                <td class="py-4 px-4 font-bold">INFORCE WMLx White Gen 3</td>
+                                <td class="py-4 px-4">1100</td>
+                                <td class="py-4 px-4">25.000</td>
+                                <td class="py-4 px-4">316m</td>
+                                <td class="py-4 px-4">2h</td>
+                                <td class="py-4 px-4 text-tactical-red font-bold">R$ 2.099,00</td>
+                                <td class="py-4 px-4"><a href="wmlx-white-gen3.html" class="underline hover:text-tactical-red">Abrir</a></td>
+                            </tr>
+                            <tr class="hover:bg-black/20 transition">
+                                <td class="py-4 px-4 font-bold">INFORCE WILD2</td>
+                                <td class="py-4 px-4">1000</td>
+                                <td class="py-4 px-4">25.000</td>
+                                <td class="py-4 px-4">316m</td>
+                                <td class="py-4 px-4">1,5h</td>
+                                <td class="py-4 px-4 text-tactical-red font-bold">R$ 2.290,00</td>
+                                <td class="py-4 px-4"><a href="wild2.html" class="underline hover:text-tactical-red">Abrir</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="py-20 px-4 bg-tactical-dark border-t border-white/5">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-            <div class="bg-tactical-black p-8 rounded-lg border-l-4 border-tactical-red">
-                <h3 class="text-xl font-bold mb-4">Prazos e UrgÃªncia</h3>
-                <p class="text-tactical-gray">O corte de preÃ§o de <span class="line-through">R$ 2.800,00</span> para R$ 1.900,00 Ã© de efeito imediato e condicionado exclusivamente ao escoamento do stock atual. NÃ£o haverÃ¡ reposiÃ§Ã£o neste valor.</p>
+        <section class="py-20 px-4 bg-tactical-black">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
+                <div class="card-edge bg-tactical-panel rounded-xl p-6">
+                    <p class="text-tactical-red text-xs uppercase tracking-[0.2em] mb-2">Perfil 01</p>
+                    <h3 class="text-2xl uppercase mb-2">Foco em pistola compacta</h3>
+                    <p class="text-tactical-gray mb-5">Comece pelo WILD1 para custo-beneficio agressivo e resposta tatica imediata.</p>
+                    <a href="wild1.html" class="underline hover:text-tactical-red">Ir para WILD1</a>
+                </div>
+                <div class="card-edge bg-tactical-panel rounded-xl p-6">
+                    <p class="text-tactical-red text-xs uppercase tracking-[0.2em] mb-2">Perfil 02</p>
+                    <h3 class="text-2xl uppercase mb-2">Rifle/PCC com mais autonomia</h3>
+                    <p class="text-tactical-gray mb-5">WMLx Gen 3 entrega 1100 lumens e 2 horas para aplicacoes prolongadas.</p>
+                    <a href="wmlx-white-gen3.html" class="underline hover:text-tactical-red">Ir para WMLx</a>
+                </div>
+                <div class="card-edge bg-tactical-panel rounded-xl p-6">
+                    <p class="text-tactical-red text-xs uppercase tracking-[0.2em] mb-2">Perfil 03</p>
+                    <h3 class="text-2xl uppercase mb-2">Uso profissional multi-plataforma</h3>
+                    <p class="text-tactical-gray mb-5">WILD2 com trilho 1913/Glock, lockout e construcao 6061-T6.</p>
+                    <a href="wild2.html" class="underline hover:text-tactical-red">Ir para WILD2</a>
+                </div>
             </div>
-            <div class="bg-tactical-black p-8 rounded-lg border-l-4 border-tactical-gray">
-                <h3 class="text-xl font-bold mb-4">MitigaÃ§Ã£o de Riscos</h3>
-                <p class="text-tactical-gray">Equipada com "Lockout System" na coroa da lente, bloqueando acionamentos acidentais durante o transporte. ManutenÃ§Ã£o limitada a limpeza simples com Ã¡lcool.</p>
-            </div>
-            <div class="bg-tactical-black p-8 rounded-lg border-l-4 border-tactical-gray">
-                <h3 class="text-xl font-bold mb-4">MÃ©tricas de Sucesso</h3>
-                <p class="text-tactical-gray">InstalaÃ§Ã£o total concluÃ­da em menos de 10 segundos em qualquer calha padrÃ£o. Pronto uso imediato (bateria de fÃ¡brica prÃ©-incluÃ­da e testada).</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="py-16 px-4 bg-tactical-black border-y border-white/5">
-        <div class="max-w-5xl mx-auto bg-tactical-panel rounded-2xl border border-white/10 p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-            <div>
-                <p class="text-tactical-red font-bold uppercase tracking-[0.2em] text-xs mb-3">DocumentaÃ§Ã£o Oficial</p>
-                <h3 class="text-2xl md:text-3xl font-bold mb-3">
-                    <i class="fa-solid fa-file-pdf mr-3 text-tactical-red"></i>Manual INFORCE WILD1
-                </h3>
-                <p class="text-tactical-gray text-lg">
-                    Acesse o manual completo em PDF para instruÃ§Ãµes detalhadas de instalaÃ§Ã£o, operaÃ§Ã£o e manutenÃ§Ã£o.
-                </p>
+        <section id="ia-chat" class="py-16 px-4 bg-tactical-panel border-y border-white/5">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div>
+                    <h2 class="text-4xl uppercase mb-2">IA Especialista Petram</h2>
+                    <p class="text-tactical-gray text-lg">Pergunte qualquer coisa sobre WILD1, WMLx Gen 3 e WILD2. Se voce sinalizar compra, a IA ja entrega o WhatsApp do Limana.</p>
+                </div>
+                <button id="openChatCta" type="button" class="bg-tactical-red hover:bg-tactical-redHover text-white font-bold py-3 px-6 rounded uppercase transition">
+                    Abrir Chat IA
+                </button>
             </div>
-            <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-                <a href="Manual/IF71000_Wild1_Manual_PRINT.pdf" target="_blank" rel="noopener noreferrer" class="bg-tactical-red hover:bg-tactical-redHover text-white font-bold py-3 px-6 rounded text-center transition duration-300 whitespace-nowrap">
-                    Abrir Manual
-                </a>
-                <a href="Manual/IF71000_Wild1_Manual_PRINT.pdf" download class="bg-transparent border border-white/20 hover:border-white/40 text-white font-bold py-3 px-6 rounded text-center transition duration-300 whitespace-nowrap">
-                    Baixar PDF
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="comprar" class="py-24 px-4 bg-tactical-red relative overflow-hidden text-center">
-        <div class="absolute inset-0 bg-black/20"></div>
-        <div class="max-w-4xl mx-auto relative z-10">
-            <h2 class="text-4xl md:text-5xl font-black mb-6 uppercase shadow-black drop-shadow-lg">A Vantagem TÃ¡tica Ã© Sua.</h2>
-            <p class="text-xl mb-10 font-medium">Bateria instalada. Pronto a acoplar. Economize 32% apenas hoje.</p>
-
-            <div class="bg-tactical-black/80 backdrop-blur border border-white/20 p-8 rounded-xl inline-block mb-8">
-                <p class="text-tactical-gray text-lg mb-2">PreÃ§o Final (Stock Limitado):</p>
-                <div class="text-5xl font-black text-white mb-6">R$ 1.900,00</div>
-                <a href="https://www.petramguns.com.br/produtos/lanterna-inforce-wild1-pistol-mounted-light-500-lumens-white-light/" class="inline-block bg-white text-tactical-red hover:bg-gray-200 text-xl font-black py-5 px-12 rounded-lg shadow-2xl transition duration-300 transform hover:scale-105 w-full sm:w-auto uppercase text-center">
-                    Adicionar ao Carrinho
-                </a>
-            </div>
-            <p class="text-sm text-white/70 mt-4"><i class="fa-solid fa-shield-check mr-2"></i>Compra segura e envio imediato garantido.</p>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="bg-black py-8 text-center border-t border-white/10">
-        <div class="flex flex-col items-center gap-4 mb-4">
-            <img src="Imagens/logo-petram-branco.png" alt="Petram Guns" class="h-10 w-auto opacity-50 grayscale object-contain">
-        </div>
-        <div class="text-tactical-gray text-sm">
-            &copy; 2026 PETRAM GUNS. Distribuidor Oficial INFORCE no Brasil. Todos os direitos reservados.
-        </div>
-        <div class="mt-5">
-            <a href="https://www.petramguns.com.br/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white/80 hover:text-white text-sm font-semibold py-2 px-5 rounded transition duration-300">
-                <i class="fa-solid fa-globe"></i>
-                Visitar Site Petram Guns
-            </a>
-        </div>
+        <img src="Imagens/logo-petram-branco.png" alt="Petram Guns" class="h-10 w-auto object-contain opacity-60 mx-auto mb-4">
+        <p class="text-tactical-gray text-sm">&copy; 2026 PETRAM GUNS. Distribuidor oficial INFORCE no Brasil.</p>
     </footer>
+
+    <div id="chatWidget" class="fixed bottom-5 right-5 z-50">
+        <button id="chatToggle" type="button" class="bg-tactical-red hover:bg-tactical-redHover text-white rounded-full w-16 h-16 shadow-2xl shadow-tactical-red/30 border border-white/10 transition">
+            <i class="fa-solid fa-robot text-2xl"></i>
+        </button>
+
+        <div id="chatPanel" class="hidden mt-3 w-[94vw] max-w-md bg-[#0f0f0f] border border-white/15 rounded-2xl overflow-hidden shadow-2xl">
+            <div class="bg-tactical-red text-white px-4 py-3 flex items-center justify-between">
+                <div>
+                    <p class="font-bold uppercase tracking-wide">IA Especialista INFORCE</p>
+                    <p class="text-xs text-white/85">Comparativo e recomendacao em segundos</p>
+                </div>
+                <a href="https://wa.me/555195527203?text=Ola%20Limana%2C%20quero%20atendimento%20sobre%20as%20lanternas%20INFORCE." target="_blank" rel="noopener noreferrer" class="text-xs font-bold underline">
+                    Limana
+                </a>
+            </div>
+
+            <div id="chatMessages" class="chat-scroll h-80 overflow-y-auto p-4 space-y-3 bg-[#0b0b0b]"></div>
+
+            <div class="px-4 pt-2 pb-3 border-t border-white/10 bg-[#101010]">
+                <div class="flex flex-wrap gap-2 mb-3">
+                    <button type="button" class="chat-chip text-xs px-3 py-2 rounded border border-white/20 hover:border-tactical-red transition" data-q="Compare WILD1 e WILD2">Comparar WILD1 x WILD2</button>
+                    <button type="button" class="chat-chip text-xs px-3 py-2 rounded border border-white/20 hover:border-tactical-red transition" data-q="Qual tem maior autonomia?">Maior autonomia</button>
+                    <button type="button" class="chat-chip text-xs px-3 py-2 rounded border border-white/20 hover:border-tactical-red transition" data-q="Quero comprar WMLx Gen 3">Quero comprar WMLx</button>
+                </div>
+                <form id="chatForm" class="flex gap-2">
+                    <input id="chatInput" type="text" placeholder="Pergunte sobre preco, comparativo, uso..." class="flex-1 bg-black border border-white/20 rounded px-3 py-2 text-sm focus:outline-none focus:border-tactical-red" autocomplete="off">
+                    <button type="submit" class="bg-tactical-red hover:bg-tactical-redHover text-white px-4 rounded font-bold text-sm uppercase">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script>
         (() => {
-            const mainImage = document.getElementById('heroProductImage');
-            const thumbnails = document.querySelectorAll('.hero-thumb');
+            const products = {
+                wild1: {
+                    name: "INFORCE WILD1",
+                    lumens: "1000",
+                    candela: "25.000",
+                    alcance: "312m",
+                    autonomia: "1,5h",
+                    preco: "R$ 1.900,00",
+                    oferta: "32% OFF",
+                    uso: "Pistola compacta",
+                    landing: "wild1.html",
+                    checkout: "https://www.petramguns.com.br/produtos/lanterna-inforce-wild1-pistol-mounted-light-500-lumens-white-light/"
+                },
+                wmlx: {
+                    name: "INFORCE WMLx White Gen 3",
+                    lumens: "1100",
+                    candela: "25.000",
+                    alcance: "316m",
+                    autonomia: "2h",
+                    preco: "R$ 2.099,00",
+                    oferta: "15% OFF",
+                    uso: "Rifle / PCC",
+                    landing: "wmlx-white-gen3.html",
+                    checkout: "https://www.petramguns.com.br/"
+                },
+                wild2: {
+                    name: "INFORCE WILD2",
+                    lumens: "1000",
+                    candela: "25.000",
+                    alcance: "316m",
+                    autonomia: "1,5h",
+                    preco: "R$ 2.290,00",
+                    oferta: "28% OFF",
+                    uso: "Pistola e uso profissional",
+                    landing: "wild2.html",
+                    checkout: "https://www.petramguns.com.br/"
+                }
+            };
 
-            if (!mainImage || !thumbnails.length) return;
+            const specialistName = "Limana";
+            const specialistPhone = "+55 51 9552-7203";
+            const specialistWa = "555195527203";
 
-            thumbnails.forEach((thumb) => {
-                thumb.addEventListener('click', () => {
-                    const nextSrc = thumb.getAttribute('data-src');
-                    const nextAlt = thumb.getAttribute('data-alt') || mainImage.alt;
+            const chatToggle = document.getElementById("chatToggle");
+            const chatPanel = document.getElementById("chatPanel");
+            const openChatCta = document.getElementById("openChatCta");
+            const chatMessages = document.getElementById("chatMessages");
+            const chatForm = document.getElementById("chatForm");
+            const chatInput = document.getElementById("chatInput");
+            const chatChips = document.querySelectorAll(".chat-chip");
 
-                    if (!nextSrc) return;
+            function normalize(text) {
+                return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            }
 
-                    mainImage.src = nextSrc;
-                    mainImage.alt = nextAlt;
+            function detectProduct(text) {
+                const t = normalize(text);
+                if (t.includes("wild1") || t.includes("wild 1")) return "wild1";
+                if (t.includes("wild2") || t.includes("wild 2")) return "wild2";
+                if (t.includes("wmlx") || t.includes("gen 3") || t.includes("gen3")) return "wmlx";
+                return null;
+            }
 
-                    thumbnails.forEach((item) => {
-                        item.classList.remove('ring-2', 'ring-tactical-red', 'border-tactical-red');
-                        item.classList.add('border-white/15');
-                        item.setAttribute('aria-current', 'false');
-                    });
+            function waLink(productKey) {
+                const product = productKey ? products[productKey] : null;
+                const message = product
+                    ? `Ola ${specialistName}, quero comprar a ${product.name}. Pode me ajudar com fechamento?`
+                    : `Ola ${specialistName}, quero atendimento para escolher uma lanterna INFORCE e fechar compra.`;
+                return `https://wa.me/${specialistWa}?text=${encodeURIComponent(message)}`;
+            }
 
-                    thumb.classList.remove('border-white/15');
-                    thumb.classList.add('ring-2', 'ring-tactical-red', 'border-tactical-red');
-                    thumb.setAttribute('aria-current', 'true');
+            function addMessage(role, content, asHtml) {
+                const row = document.createElement("div");
+                row.className = role === "bot" ? "flex justify-start" : "flex justify-end";
+
+                const bubble = document.createElement("div");
+                bubble.className = role === "bot"
+                    ? "max-w-[88%] bg-[#1b1b1b] border border-white/10 rounded-xl px-3 py-2 text-sm"
+                    : "max-w-[88%] bg-tactical-red text-white rounded-xl px-3 py-2 text-sm";
+
+                if (asHtml) {
+                    bubble.innerHTML = content;
+                } else {
+                    bubble.textContent = content;
+                }
+
+                row.appendChild(bubble);
+                chatMessages.appendChild(row);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function productSummary(key) {
+                const p = products[key];
+                return `${p.name}: ${p.lumens} lumens, ${p.candela} candela, ${p.alcance} de alcance, ${p.autonomia} de autonomia. Preco atual ${p.preco} (${p.oferta}). <a href="${p.landing}" class="underline text-tactical-red">Abrir landing</a>.`;
+            }
+
+            function answerQuestion(question) {
+                const q = normalize(question);
+                const productKey = detectProduct(q);
+
+                const strongBuyIntent = /(quero comprar|vou comprar|fechar compra|como comprar|link de compra|falar com vendedor|falar com especialista|tenho interesse|me atende|quero esse)/.test(q);
+                const softCommerce = /(preco|valor|desconto|oferta|parcel|pagamento|cartao|pix)/.test(q);
+
+                if (strongBuyIntent || (softCommerce && /(quero|comprar|interesse|fechar)/.test(q))) {
+                    const link = waLink(productKey);
+                    const productText = productKey ? ` do ${products[productKey].name}` : "";
+                    return `Perfeito. Para fechar a compra${productText}, fale agora com ${specialistName} no WhatsApp (${specialistPhone}): <a href="${link}" target="_blank" rel="noopener noreferrer" class="underline text-tactical-red font-bold">Abrir WhatsApp do especialista</a>.`;
+                }
+
+                if (/(compar|diferenc|vs|versus|qual melhor)/.test(q)) {
+                    return `Comparativo rapido:<br><br><strong>WILD1</strong> = preco mais agressivo.<br><strong>WMLx Gen 3</strong> = maior potencia (1100) e maior autonomia (2h).<br><strong>WILD2</strong> = perfil profissional multi-plataforma.<br><br>Se quiser, eu te digo qual faz mais sentido para seu uso em 20 segundos.`;
+                }
+
+                if (/(autonomia|bateria|duracao)/.test(q)) {
+                    return `Autonomia por modelo:<br><strong>WMLx Gen 3:</strong> 2h<br><strong>WILD1:</strong> 1,5h<br><strong>WILD2:</strong> 1,5h`;
+                }
+
+                if (/(lumen|potencia|candela|alcance)/.test(q)) {
+                    return `Potencia e alcance:<br><strong>WMLx Gen 3:</strong> 1100 lumens / 25.000 candela / 316m<br><strong>WILD1:</strong> 1000 lumens / 25.000 candela / 312m<br><strong>WILD2:</strong> 1000 lumens / 25.000 candela / 316m`;
+                }
+
+                if (/(preco|valor|oferta|desconto)/.test(q)) {
+                    return `Ofertas atuais:<br><strong>WILD1:</strong> R$ 1.900,00 (32% OFF)<br><strong>WMLx Gen 3:</strong> R$ 2.099,00 (15% OFF)<br><strong>WILD2:</strong> R$ 2.290,00 (28% OFF)`;
+                }
+
+                if (productKey) {
+                    return productSummary(productKey);
+                }
+
+                return `Posso te ajudar com:<br>1) comparativo entre os 3 modelos<br>2) preco e oferta atual<br>3) melhor opcao para seu uso<br><br>Se voce ja estiver pronto para comprar, eu ja te conecto ao ${specialistName} no WhatsApp.`;
+            }
+
+            function submitQuestion(text) {
+                const clean = text.trim();
+                if (!clean) return;
+                addMessage("user", clean, false);
+                const answer = answerQuestion(clean);
+                setTimeout(() => addMessage("bot", answer, true), 180);
+            }
+
+            chatToggle.addEventListener("click", () => {
+                chatPanel.classList.toggle("hidden");
+                if (!chatPanel.classList.contains("hidden")) {
+                    chatInput.focus();
+                }
+            });
+
+            openChatCta.addEventListener("click", () => {
+                chatPanel.classList.remove("hidden");
+                chatInput.focus();
+            });
+
+            chatForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+                submitQuestion(chatInput.value);
+                chatInput.value = "";
+            });
+
+            chatChips.forEach((chip) => {
+                chip.addEventListener("click", () => {
+                    submitQuestion(chip.getAttribute("data-q") || "");
                 });
             });
+
+            addMessage(
+                "bot",
+                `Sou a IA especialista da linha INFORCE. Sei tudo sobre WILD1, WMLx Gen 3 e WILD2. Se voce quiser comprar, te conecto direto ao ${specialistName} no WhatsApp.`,
+                false
+            );
         })();
     </script>
 
 </body>
 </html>
-
