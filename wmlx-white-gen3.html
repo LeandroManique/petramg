@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFORCE WMLx White Gen 3 - Petram Guns</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tactical: {
+                            black: '#0a0a0a',
+                            dark: '#171717',
+                            red: '#F25C22',
+                            redHover: '#D94D1A',
+                            gray: '#737373',
+                            panel: '#1f1f1f'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', -apple-system, sans-serif; background-color: #0a0a0a; color: white; }
+        .clip-diagonal { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    </style>
+</head>
+<body class="antialiased selection:bg-tactical-red selection:text-white">
+
+    <nav class="fixed w-full z-50 bg-tactical-black/95 backdrop-blur-sm border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-24">
+            <a href="#" class="flex items-center justify-center">
+                <img src="Imagens/logo-petram-branco.png" alt="Petram Guns Logo" class="h-16 w-auto object-contain rounded">
+            </a>
+            <a href="https://www.petramguns.com.br/" class="hidden md:inline-block bg-tactical-red hover:bg-tactical-redHover text-white font-bold py-2 px-6 rounded transition duration-300">
+                FALAR COM ESPECIALISTA
+            </a>
+        </div>
+    </nav>
+
+    <section class="pt-36 pb-20 md:pt-48 md:pb-32 px-4 relative overflow-hidden clip-diagonal bg-tactical-dark">
+        <div class="absolute inset-0">
+            <img src="Imagens/wmlx-white-bg1.png" alt="WMLx White Gen 3 em plataforma de rifle" class="w-full h-full object-cover opacity-35">
+        </div>
+        <div class="absolute inset-0 bg-black/55"></div>
+        <div class="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-tactical-red via-tactical-black to-tactical-black"></div>
+        <div class="max-w-7xl mx-auto relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                    <span class="bg-tactical-black border border-tactical-red/50 text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-wider">Novo WMLx Gen 3</span>
+                    <span class="text-tactical-red font-bold tracking-widest text-sm uppercase">Distribuidor oficial Petram Guns</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 uppercase">
+                    INFORCE <span class="text-tactical-red">WMLx White Gen 3</span>
+                </h1>
+                <p class="text-xl text-tactical-gray mb-8 font-light">
+                    1100 lumens, 25.000 candela e alcance de 316 metros com autonomia de 2 horas em duas baterias CR123A. Um upgrade real para quem precisa de resposta imediata e confiavel.
+                </p>
+                <div class="flex flex-wrap items-end gap-5 mb-8">
+                    <div>
+                        <p class="text-tactical-gray line-through text-lg">de R$2.459,00</p>
+                        <p class="text-4xl font-black text-white">por: R$2.099,00</p>
+                    </div>
+                    <span class="bg-tactical-red text-white font-black uppercase tracking-wider px-4 py-2 rounded">15% OFF</span>
+                </div>
+                <p class="text-sm text-white/85 mb-6">Condicao promocional valida para o lote atual. Sujeito a disponibilidade de estoque.</p>
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <a href="https://www.petramguns.com.br/" class="bg-tactical-red hover:bg-tactical-redHover text-white text-lg font-bold py-4 px-8 rounded shadow-lg shadow-tactical-red/30 transition duration-300 w-full sm:w-auto text-center uppercase">
+                        Garantir Minha WMLx Agora
+                    </a>
+                </div>
+                <div class="mt-6 grid sm:grid-cols-3 gap-3 text-sm">
+                    <div class="bg-black/40 border border-white/10 rounded p-3">Compra com distribuidor oficial no Brasil.</div>
+                    <div class="bg-black/40 border border-white/10 rounded p-3">Garantia vitalicia ao proprietario original.</div>
+                    <div class="bg-black/40 border border-white/10 rounded p-3">Oferta ativa no lote com 15% OFF.</div>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col items-center">
+                <div class="absolute inset-0 bg-tactical-red/20 blur-3xl rounded-full"></div>
+
+                <div class="relative z-10 w-full max-w-md bg-gradient-to-tr from-gray-800 to-gray-700 rounded-xl border border-gray-600 p-4 shadow-2xl">
+                    <img id="wmlxHeroImage" src="Imagens/wmlx-white-bg1.png" alt="INFORCE WMLx White Gen 3 - vista em rifle" class="w-full h-auto object-contain rounded">
+                </div>
+
+                <div class="w-full max-w-md grid grid-cols-3 sm:grid-cols-5 gap-3 mt-4 relative z-10">
+                    <button type="button" class="wmlx-thumb bg-tactical-black/80 rounded border border-tactical-red ring-2 ring-tactical-red p-1 transition hover:border-tactical-red" data-src="Imagens/wmlx-white-bg1.png" data-alt="INFORCE WMLx White Gen 3 - vista em rifle" aria-label="Ver imagem em rifle" aria-current="true">
+                        <img src="Imagens/wmlx-white-bg1.png" alt="Miniatura WMLx White em rifle" class="w-full h-16 object-cover rounded">
+                    </button>
+                    <button type="button" class="wmlx-thumb bg-tactical-black/80 rounded border border-white/15 p-1 transition hover:border-tactical-red" data-src="Imagens/wmlx-white-4.png" data-alt="INFORCE WMLx White Gen 3 - vista principal" aria-label="Ver imagem principal" aria-current="false">
+                        <img src="Imagens/wmlx-white-4.png" alt="Miniatura principal WMLx White Gen 3" class="w-full h-16 object-cover rounded">
+                    </button>
+                    <button type="button" class="wmlx-thumb bg-tactical-black/80 rounded border border-white/15 p-1 transition hover:border-tactical-red" data-src="Imagens/wmlx-white-bl1.png" data-alt="INFORCE WMLx White Gen 3 - detalhe lateral" aria-label="Ver detalhe lateral" aria-current="false">
+                        <img src="Imagens/wmlx-white-bl1.png" alt="Miniatura detalhe lateral WMLx White Gen 3" class="w-full h-16 object-cover rounded">
+                    </button>
+                    <button type="button" class="wmlx-thumb bg-tactical-black/80 rounded border border-white/15 p-1 transition hover:border-tactical-red" data-src="Imagens/wmlx-white-agua.png" data-alt="INFORCE WMLx White Gen 3 - resistencia a agua" aria-label="Ver resistencia a agua" aria-current="false">
+                        <img src="Imagens/wmlx-white-agua.png" alt="Miniatura resistencia a agua WMLx White Gen 3" class="w-full h-16 object-cover rounded">
+                    </button>
+                    <button type="button" class="wmlx-thumb bg-tactical-black/80 rounded border border-white/15 p-1 transition hover:border-tactical-red" data-src="Imagens/wmlx-white-pilha.png" data-alt="INFORCE WMLx White Gen 3 - baterias CR123A" aria-label="Ver bateria CR123A" aria-current="false">
+                        <img src="Imagens/wmlx-white-pilha.png" alt="Miniatura bateria WMLx White Gen 3" class="w-full h-16 object-cover rounded">
+                    </button>
+                </div>
+
+                <div class="relative z-10 mt-6 w-full max-w-md bg-gradient-to-tr from-gray-800 to-gray-700 rounded-xl border border-gray-600 p-6 shadow-2xl">
+                    <h2 class="text-2xl font-black uppercase mb-6">Metricas de Campo</h2>
+                    <div class="space-y-4">
+                        <div class="bg-black/40 border border-white/10 rounded p-4 flex items-center justify-between gap-4">
+                            <span class="text-tactical-gray uppercase text-sm">Saida de luz</span>
+                            <span class="text-white font-bold text-lg">1100 Lumens</span>
+                        </div>
+                        <div class="bg-black/40 border border-white/10 rounded p-4 flex items-center justify-between gap-4">
+                            <span class="text-tactical-gray uppercase text-sm">Intensidade</span>
+                            <span class="text-white font-bold text-lg">25.000 Candela</span>
+                        </div>
+                        <div class="bg-black/40 border border-white/10 rounded p-4 flex items-center justify-between gap-4">
+                            <span class="text-tactical-gray uppercase text-sm">Alcance</span>
+                            <span class="text-white font-bold text-lg">316 m / 1036.75 ft</span>
+                        </div>
+                        <div class="bg-black/40 border border-white/10 rounded p-4 flex items-center justify-between gap-4">
+                            <span class="text-tactical-gray uppercase text-sm">Autonomia</span>
+                            <span class="text-white font-bold text-lg">2 horas (2x CR123A)</span>
+                        </div>
+                    </div>
+                    <p class="text-tactical-gray text-sm mt-6">Feixe concentrado para CQB em shotgun/PCC e engajamento de media distancia em plataforma de rifle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 bg-tactical-black">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">Por que o WMLx White Gen 3 e a escolha certa agora</h2>
+            <p class="text-tactical-gray text-lg text-center max-w-4xl mx-auto mb-12">
+                Mais do que aumento de lumen: a nova geracao entrega mais intensidade de feixe sem sacrificar autonomia. Com 15% OFF no lote atual, o melhor momento de decisao e agora.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-tactical-dark p-8 rounded border border-white/10">
+                    <div class="text-tactical-red text-4xl font-black mb-3">2x+</div>
+                    <h3 class="text-xl font-bold mb-2">Vantagem Tecnica Imediata</h3>
+                    <p class="text-tactical-gray">A plataforma Gen 3 entrega 25.000 candela com duas CR123A para superioridade real no uso.</p>
+                </div>
+                <div class="bg-tactical-dark p-8 rounded border border-white/10">
+                    <div class="text-tactical-red text-4xl font-black mb-3">2h</div>
+                    <h3 class="text-xl font-bold mb-2">Performance sem Perda</h3>
+                    <p class="text-tactical-gray">Mesmo com salto de desempenho, a autonomia permanece em 2 horas no modo alto.</p>
+                </div>
+                <div class="bg-tactical-dark p-8 rounded border border-white/10">
+                    <div class="text-tactical-red text-4xl font-black mb-3">15%</div>
+                    <h3 class="text-xl font-bold mb-2">Janela Comercial Ativa</h3>
+                    <p class="text-tactical-gray">Condicao atual de 15% OFF em lote promocional, sujeita a encerramento por disponibilidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 bg-tactical-dark border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-10 text-center">Gatilhos de Decisao</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-tactical-black border border-white/10 rounded-xl p-6">
+                    <p class="text-tactical-red text-xs font-bold uppercase tracking-[0.2em] mb-2">Escassez</p>
+                    <h3 class="text-xl font-bold mb-2">Lote promocional em andamento</h3>
+                    <p class="text-tactical-gray">Preco de R$2.099,00 valido enquanto durar o lote atual.</p>
+                </div>
+                <div class="bg-tactical-black border border-white/10 rounded-xl p-6">
+                    <p class="text-tactical-red text-xs font-bold uppercase tracking-[0.2em] mb-2">Autoridade</p>
+                    <h3 class="text-xl font-bold mb-2">Compra com distribuidor oficial</h3>
+                    <p class="text-tactical-gray">Atendimento Petram com orientacao para configuracao correta da sua plataforma.</p>
+                </div>
+                <div class="bg-tactical-black border border-white/10 rounded-xl p-6">
+                    <p class="text-tactical-red text-xs font-bold uppercase tracking-[0.2em] mb-2">Reducao de risco</p>
+                    <h3 class="text-xl font-bold mb-2">Garantia vitalicia INFORCE</h3>
+                    <p class="text-tactical-gray">Protecao de longo prazo para quem busca performance com confiabilidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 bg-tactical-dark">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">Recursos Principais</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-bolt text-tactical-red mr-2"></i>1100 lumens no modo high</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-bullseye text-tactical-red mr-2"></i>25.000 candela de intensidade</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-ruler-horizontal text-tactical-red mr-2"></i>Alcance de 316 metros</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-battery-full text-tactical-red mr-2"></i>2h de bateria com 2x CR123A</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-lock text-tactical-red mr-2"></i>Lockout com 1/4 de volta da cabeca</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-shield-halved text-tactical-red mr-2"></i>Trava de seguranca contra acionamento acidental</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-screwdriver-wrench text-tactical-red mr-2"></i>Sem ferramentas para instalar/remover</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-hand-pointer text-tactical-red mr-2"></i>Switch antiderrapante: constante, momentanea e estrobo</div>
+                <div class="bg-tactical-black p-6 rounded border border-white/10"><i class="fa-solid fa-water text-tactical-red mr-2"></i>A prova d'agua ate 20m (66ft)</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 bg-tactical-panel border-y border-white/5">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
+            <div class="bg-tactical-black border border-white/10 rounded-xl overflow-hidden">
+                <img src="Imagens/wmlx-white-pilha.png" alt="WMLx White Gen 3 com baterias CR123A" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <p class="text-tactical-red text-xs font-bold uppercase tracking-[0.2em] mb-2">Energia de Missao</p>
+                    <h3 class="text-2xl font-bold mb-2">Bateria para 2 Horas de Operacao</h3>
+                    <p class="text-tactical-gray">Plataforma alimentada por 2x CR123A, mantendo autonomia consistente no modo de alta performance.</p>
+                </div>
+            </div>
+            <div class="bg-tactical-black border border-white/10 rounded-xl overflow-hidden">
+                <img src="Imagens/wmlx-white-agua.png" alt="WMLx White Gen 3 em ambiente umido" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <p class="text-tactical-red text-xs font-bold uppercase tracking-[0.2em] mb-2">Confiabilidade Ambiental</p>
+                    <h3 class="text-2xl font-bold mb-2">Vedacao para Operacao em Condicao Extrema</h3>
+                    <p class="text-tactical-gray">Resistencia a agua ate 20 metros (66 ft), com arquitetura preparada para chuva intensa e submersao controlada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 bg-tactical-black border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">Diferenciais de Engenharia</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-tactical-dark p-8 rounded border border-white/10">
+                    <h3 class="text-xl font-bold mb-3"><i class="fa-solid fa-shield-halved text-tactical-red mr-2"></i>Construção Reforçada</h3>
+                    <p class="text-tactical-gray">Durable T6 aluminum construction, acabamento Type III hard coat e vedação IPX8 para operação em ambiente agressivo.</p>
+                </div>
+                <div class="bg-tactical-dark p-8 rounded border border-white/10">
+                    <h3 class="text-xl font-bold mb-3"><i class="fa-solid fa-puzzle-piece text-tactical-red mr-2"></i>Design Modular</h3>
+                    <p class="text-tactical-gray">Projeto modular com padrão e footprint Scout, facilitando integração em configurações avançadas.</p>
+                </div>
+                <div class="bg-tactical-dark p-8 rounded border border-white/10">
+                    <h3 class="text-xl font-bold mb-3"><i class="fa-solid fa-crosshairs text-tactical-red mr-2"></i>Cabeça LR</h3>
+                    <p class="text-tactical-gray">LR head com padrão de feixe otimizado para uso em longo alcance, mantendo definição e foco.</p>
+                </div>
+                <div class="bg-tactical-dark p-8 rounded border border-white/10">
+                    <h3 class="text-xl font-bold mb-3"><i class="fa-solid fa-award text-tactical-red mr-2"></i>Garantia Vitalícia</h3>
+                    <p class="text-tactical-gray">Lifetime warranty para o proprietário original, reforçando compromisso de longo prazo com desempenho.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 bg-tactical-black">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-10 text-center">Especificacoes Tecnicas</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-tactical-gray/30 text-tactical-red">
+                            <th class="py-4 px-6 font-bold uppercase tracking-wider">Parametro</th>
+                            <th class="py-4 px-6 font-bold uppercase tracking-wider">Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-tactical-gray">
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Output</td><td class="py-4 px-6">1100 Lumens</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Beam Intensity</td><td class="py-4 px-6">25.000 Candela</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Distancia</td><td class="py-4 px-6">316 m (1.036,75 ft)</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Bateria</td><td class="py-4 px-6">2 x CR123A</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Autonomia</td><td class="py-4 px-6">2 horas</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Interface</td><td class="py-4 px-6">Clamp integrado para trilho MIL-STD-1913</td></tr>
+                        <tr class="border-b border-tactical-gray/10 hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Material</td><td class="py-4 px-6">Nylon reforcado com fibra de vidro</td></tr>
+                        <tr class="hover:bg-tactical-dark transition"><td class="py-4 px-6 text-white font-medium">Resistencia a agua</td><td class="py-4 px-6">Ate 20 metros (66 ft)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="downloads" class="py-16 px-4 bg-tactical-panel border-y border-white/10">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+            <a href="Manual/IF71012_WMLx_Gen_3_Spec_Sheet.pdf" target="_blank" rel="noopener noreferrer" class="bg-tactical-black border border-white/15 hover:border-tactical-red transition rounded-xl p-8">
+                <div class="text-tactical-red text-sm font-bold uppercase tracking-wider mb-3">Download Oficial</div>
+                <h3 class="text-2xl font-bold mb-3"><i class="fa-solid fa-file-pdf mr-2 text-tactical-red"></i>WMLx White Gen 3 Spec Sheet</h3>
+                <p class="text-tactical-gray">Ficha tecnica completa com performance, arquitetura e dimensoes operacionais.</p>
+            </a>
+            <a href="Manual/Gen3__WML_Manual.pdf" target="_blank" rel="noopener noreferrer" class="bg-tactical-black border border-white/15 hover:border-tactical-red transition rounded-xl p-8">
+                <div class="text-tactical-red text-sm font-bold uppercase tracking-wider mb-3">Download Oficial</div>
+                <h3 class="text-2xl font-bold mb-3"><i class="fa-solid fa-book mr-2 text-tactical-red"></i>WML Series User Manual</h3>
+                <p class="text-tactical-gray">Manual de usuario para instalacao, operacao, seguranca e manutencao da serie WML.</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 bg-tactical-dark border-t border-white/5">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-5">Garantia Vitalicia INFORCE</h2>
+            <p class="text-tactical-gray text-lg mb-8">
+                A INFORCE oferece garantia vitalicia ao proprietario original. Uma politica que reforca o compromisso da marca com desempenho, confiabilidade e suporte de longo prazo.
+            </p>
+            <a href="https://www.petramguns.com.br/" class="inline-block bg-tactical-red hover:bg-tactical-redHover text-white text-lg font-bold py-4 px-10 rounded transition duration-300 uppercase">
+                Falar com a Petram sobre Garantia
+            </a>
+        </div>
+    </section>
+
+    <section id="comprar" class="py-24 px-4 bg-tactical-red relative overflow-hidden text-center">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h2 class="text-4xl md:text-5xl font-black mb-6 uppercase">Garanta seu WMLx Gen 3 no lote com 15% OFF</h2>
+            <p class="text-xl mb-8 font-medium">WMLx White - Gen 3 - Rifle</p>
+            <div class="bg-tactical-black/80 backdrop-blur border border-white/20 p-8 rounded-xl inline-block mb-4">
+                <p class="text-tactical-gray text-lg line-through mb-2">de R$2.459,00</p>
+                <div class="text-5xl font-black text-white mb-2">R$2.099,00</div>
+                <p class="text-white font-black uppercase tracking-wider mb-6">15% OFF</p>
+                <a href="https://www.petramguns.com.br/" class="inline-block bg-white text-tactical-red hover:bg-gray-200 text-xl font-black py-5 px-12 rounded-lg shadow-2xl transition duration-300 transform hover:scale-105 w-full sm:w-auto uppercase text-center">
+                    Quero Garantir Agora
+                </a>
+            </div>
+            <p class="text-white/90 text-sm mt-4">Alta procura do novo Gen 3. Oferta sujeita a disponibilidade de estoque.</p>
+        </div>
+    </section>
+
+    <footer class="bg-black py-8 text-center border-t border-white/10">
+        <div class="flex flex-col items-center gap-4 mb-4">
+            <img src="Imagens/logo-petram-branco.png" alt="Petram Guns" class="h-10 w-auto opacity-60 object-contain">
+        </div>
+        <div class="text-tactical-gray text-sm">
+            &copy; 2026 PETRAM GUNS. Distribuidor oficial INFORCE no Brasil. Todos os direitos reservados.
+        </div>
+        <div class="mt-5">
+            <a href="https://www.petramguns.com.br/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white/80 hover:text-white text-sm font-semibold py-2 px-5 rounded transition duration-300">
+                <i class="fa-solid fa-globe"></i>
+                Visitar Site Petram Guns
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        (() => {
+            const mainImage = document.getElementById('wmlxHeroImage');
+            const thumbnails = document.querySelectorAll('.wmlx-thumb');
+
+            if (!mainImage || !thumbnails.length) return;
+
+            thumbnails.forEach((thumb) => {
+                thumb.addEventListener('click', () => {
+                    const nextSrc = thumb.getAttribute('data-src');
+                    const nextAlt = thumb.getAttribute('data-alt') || mainImage.alt;
+
+                    if (!nextSrc) return;
+
+                    mainImage.src = nextSrc;
+                    mainImage.alt = nextAlt;
+
+                    thumbnails.forEach((item) => {
+                        item.classList.remove('ring-2', 'ring-tactical-red', 'border-tactical-red');
+                        item.classList.add('border-white/15');
+                        item.setAttribute('aria-current', 'false');
+                    });
+
+                    thumb.classList.remove('border-white/15');
+                    thumb.classList.add('ring-2', 'ring-tactical-red', 'border-tactical-red');
+                    thumb.setAttribute('aria-current', 'true');
+                });
+            });
+        })();
+    </script>
+
+</body>
+</html>
