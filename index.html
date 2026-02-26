@@ -1,7 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Petram Guns | Lanternas INFORCE</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -82,7 +83,7 @@
 
     <nav class="fixed w-full z-40 bg-tactical-black/90 backdrop-blur border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-3">
                 <img src="Imagens/logo-petram-branco.png" alt="Petram Guns" class="h-12 w-auto object-contain">
                 <span class="hidden sm:inline text-white/80 text-sm tracking-[0.2em] uppercase">Lanternas INFORCE</span>
             </a>
@@ -154,56 +155,64 @@
                     </div>
                 </div>
 
-                <div class="grid lg:grid-cols-3 gap-6">
-                    <article class="card-edge bg-tactical-panel rounded-2xl overflow-hidden">
+                <div class="grid lg:grid-cols-3 gap-6 items-stretch">
+                    <article class="card-edge bg-tactical-panel rounded-2xl overflow-hidden h-full flex flex-col">
                         <img src="Imagens/wild1-hero-produto-1.png" alt="Lanterna INFORCE WILD1" class="w-full h-56 object-cover bg-black/40">
-                        <div class="p-6">
-                            <p class="text-xs text-tactical-red uppercase tracking-[0.2em] mb-2">Pistola compacta</p>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="min-h-[52px] mb-2">
+                                <p class="text-xs text-tactical-red uppercase tracking-[0.2em] mb-2">Pistola compacta</p>
+                                <span class="inline-block text-[11px] uppercase tracking-[0.2em] bg-tactical-red text-white px-2 py-1 rounded mb-2 opacity-0">Destaque de performance</span>
+                            </div>
                             <h3 class="text-3xl uppercase mb-1">WILD1</h3>
-                            <p class="text-tactical-gray mb-4">1000 lumens, 25.000 candela, acionamento ambidestro e montagem rapida.</p>
-                            <div class="flex items-center justify-between mb-5">
-                                <div>
-                                    <p class="text-sm text-tactical-gray line-through">R$ 2.800,00</p>
+                            <p class="text-tactical-gray min-h-[72px] mb-5">1000 lumens, 25.000 candela, acionamento ambidestro e montagem rapida.</p>
+                            <div class="flex items-end justify-between gap-3 mb-5 mt-auto min-h-[72px]">
+                                <div class="leading-tight">
+                                    <p class="text-sm text-tactical-gray line-through mb-1">R$ 2.800,00</p>
                                     <p class="text-2xl font-bold">R$ 1.900,00</p>
                                 </div>
-                                <span class="bg-tactical-red text-white text-xs font-black px-3 py-2 rounded uppercase">32% OFF</span>
+                                <span class="bg-tactical-red text-white text-xs font-black px-3 py-2 rounded uppercase whitespace-nowrap">32% OFF</span>
                             </div>
-                            <a href="wild1.html" class="block bg-tactical-red hover:bg-tactical-redHover text-center text-white font-bold py-3 rounded uppercase transition">Abrir Landing WILD1</a>
+                            <a href="wild1.html" class="block bg-tactical-red hover:bg-tactical-redHover text-center text-white font-bold py-3 rounded uppercase transition">Mais sobre WILD1</a>
                         </div>
                     </article>
 
-                    <article class="card-edge bg-tactical-panel rounded-2xl overflow-hidden lg:-mt-2 border border-tactical-red/45 shadow-2xl shadow-tactical-red/15">
-                        <img src="Imagens/wmlx-white-4.png" alt="Lanterna INFORCE WMLx White Gen 3" class="w-full h-56 object-cover bg-black/40">
-                        <div class="p-6">
-                            <p class="text-xs text-tactical-red uppercase tracking-[0.2em] mb-2">Rifle / PCC</p>
-                            <span class="inline-block text-[11px] uppercase tracking-[0.2em] bg-tactical-red text-white px-2 py-1 rounded mb-2">Destaque de performance</span>
+                    <article class="card-edge bg-tactical-panel rounded-2xl overflow-hidden lg:-mt-2 border border-tactical-red/45 shadow-2xl shadow-tactical-red/15 h-full flex flex-col">
+                        <img src="Imagens/wmlx-white-bg1.png" alt="Lanterna INFORCE WMLx White Gen 3" class="w-full h-56 object-cover bg-black/40">
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="min-h-[52px] mb-2">
+                                <p class="text-xs text-tactical-red uppercase tracking-[0.2em] mb-2">Rifle / PCC</p>
+                                <span class="inline-block text-[11px] uppercase tracking-[0.2em] bg-tactical-red text-white px-2 py-1 rounded mb-2">Destaque de performance</span>
+                            </div>
                             <h3 class="text-3xl uppercase mb-1">WMLx White Gen 3</h3>
-                            <p class="text-tactical-gray mb-4">1100 lumens, 25.000 candela e 2h de autonomia para uso de alta exigencia.</p>
-                            <div class="flex items-center justify-between mb-5">
-                                <div>
-                                    <p class="text-sm text-tactical-gray line-through">R$ 2.459,00</p>
+                            <p class="text-tactical-gray min-h-[72px] mb-5">1100 lumens, 25.000 candela e 2h de autonomia para uso de alta exigencia.</p>
+                            <div class="flex items-end justify-between gap-3 mb-5 mt-auto min-h-[72px]">
+                                <div class="leading-tight">
+                                    <p class="text-sm text-tactical-gray line-through mb-1">R$ 2.459,00</p>
                                     <p class="text-2xl font-bold">R$ 2.099,00</p>
                                 </div>
-                                <span class="bg-tactical-red text-white text-xs font-black px-3 py-2 rounded uppercase">15% OFF</span>
+                                <span class="bg-tactical-red text-white text-xs font-black px-3 py-2 rounded uppercase whitespace-nowrap">15% OFF</span>
                             </div>
-                            <a href="wmlx-white-gen3.html" class="block bg-tactical-red hover:bg-tactical-redHover text-center text-white font-bold py-3 rounded uppercase transition">Ver WMLx Gen 3</a>
+                            <a href="wmlx-white-gen3.html" class="block bg-tactical-red hover:bg-tactical-redHover text-center text-white font-bold py-3 rounded uppercase transition">Mais sobre WMLx White Gen 3</a>
                         </div>
                     </article>
 
-                    <article class="card-edge bg-tactical-panel rounded-2xl overflow-hidden">
+                    <article class="card-edge bg-tactical-panel rounded-2xl overflow-hidden h-full flex flex-col">
                         <img src="Imagens/wild2-main.png" alt="Lanterna INFORCE WILD2" class="w-full h-56 object-cover bg-black/40">
-                        <div class="p-6">
-                            <p class="text-xs text-tactical-red uppercase tracking-[0.2em] mb-2">Defesa e operacao tatica</p>
+                        <div class="p-6 flex flex-col flex-1">
+                            <div class="min-h-[52px] mb-2">
+                                <p class="text-xs text-tactical-red uppercase tracking-[0.2em] mb-2">Defesa e operacao tatica</p>
+                                <span class="inline-block text-[11px] uppercase tracking-[0.2em] bg-tactical-red text-white px-2 py-1 rounded mb-2 opacity-0">Destaque de performance</span>
+                            </div>
                             <h3 class="text-3xl uppercase mb-1">WILD2</h3>
-                            <p class="text-tactical-gray mb-4">1000 lumens, 25.000 candela, trilho 1913/Glock e funcoes constante, momentaneo e estrobo.</p>
-                            <div class="flex items-center justify-between mb-5">
-                                <div>
-                                    <p class="text-sm text-tactical-gray line-through">R$ 3.200,00</p>
+                            <p class="text-tactical-gray min-h-[72px] mb-5">1000 lumens, 25.000 candela, trilho 1913/Glock e funcoes constante, momentaneo e estrobo.</p>
+                            <div class="flex items-end justify-between gap-3 mb-5 mt-auto min-h-[72px]">
+                                <div class="leading-tight">
+                                    <p class="text-sm text-tactical-gray line-through mb-1">R$ 3.200,00</p>
                                     <p class="text-2xl font-bold">R$ 2.290,00</p>
                                 </div>
-                                <span class="bg-tactical-red text-white text-xs font-black px-3 py-2 rounded uppercase">28% OFF</span>
+                                <span class="bg-tactical-red text-white text-xs font-black px-3 py-2 rounded uppercase whitespace-nowrap">28% OFF</span>
                             </div>
-                            <a href="wild2.html" class="block bg-tactical-red hover:bg-tactical-redHover text-center text-white font-bold py-3 rounded uppercase transition">Abrir Landing WILD2</a>
+                            <a href="wild2.html" class="block bg-tactical-red hover:bg-tactical-redHover text-center text-white font-bold py-3 rounded uppercase transition">Mais sobre WILD2</a>
                         </div>
                     </article>
                 </div>
@@ -297,7 +306,9 @@
     </main>
 
     <footer class="bg-black py-8 text-center border-t border-white/10">
-        <img src="Imagens/logo-petram-branco.png" alt="Petram Guns" class="h-10 w-auto object-contain opacity-60 mx-auto mb-4">
+        <a href="index.html" class="inline-flex">
+            <img src="Imagens/logo-petram-branco.png" alt="Petram Guns" class="h-10 w-auto object-contain opacity-60 mx-auto mb-4">
+        </a>
         <p class="text-tactical-gray text-sm">&copy; 2026 PETRAM GUNS. Distribuidor oficial INFORCE no Brasil.</p>
     </footer>
 
@@ -610,4 +621,5 @@
 
 </body>
 </html>
+
 
