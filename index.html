@@ -103,7 +103,7 @@
             <div>
                 <div class="flex flex-wrap items-center gap-3 mb-4">
                     <span class="bg-tactical-black/80 border border-tactical-red/60 text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-wider">Distribuidor Oficial INFORCE</span>
-                    <span class="text-tactical-red font-bold text-sm uppercase tracking-[0.18em]">WILD1 • WMLx Gen 3 • WILD2</span>
+                    <span class="text-tactical-red font-bold text-sm uppercase tracking-[0.18em]">WILD1 | WMLx Gen 3 | WILD2</span>
                 </div>
                 <h1 class="text-5xl md:text-7xl leading-[0.95] mb-6 uppercase">
                     Escolha a <span class="text-tactical-red">lanterna certa</span> para sua missao
@@ -323,8 +323,8 @@
                     <p class="font-bold uppercase tracking-wide">PETRAM GUNS IA</p>
                     <p class="text-xs text-white/85">Especialista tecnica e consultora de compra</p>
                 </div>
-                <a href="https://wa.me/555195527203?text=Ola%20Limana%2C%20quero%20atendimento%20sobre%20as%20lanternas%20INFORCE." target="_blank" rel="noopener noreferrer" class="text-xs font-bold underline">
-                    Limana
+                <a href="https://wa.me/555195527203?text=Ola%20Limana%2C%20quero%20atendimento%20sobre%20as%20lanternas%20INFORCE." target="_blank" rel="noopener noreferrer" class="text-xs font-bold underline whitespace-nowrap">
+                    Falar com o especialista
                 </a>
             </div>
 
@@ -420,7 +420,7 @@
 
             function isBuyIntent(text) {
                 const t = normalize(text);
-                return /(quero comprar|vou comprar|fechar compra|como comprar|link de compra|falar com vendedor|falar com especialista|tenho interesse|me atende|quero esse|quero fechar|orcamento|orçamento|prazo|entrega|pagamento|parcelamento)/.test(t);
+                return /(quero comprar|vou comprar|fechar compra|como comprar|link de compra|falar com vendedor|falar com especialista|tenho interesse|me atende|quero esse|quero fechar|orcamento|prazo|entrega|pagamento|parcelamento)/.test(t);
             }
 
             function waLink(productKey) {
@@ -445,7 +445,7 @@
                 safe = safe.replace(/\n/g, "<br>");
                 safe = safe.replace(
                     /(https:\/\/wa\.me\/[^\s<]+)/g,
-                    '<a href="$1" target="_blank" rel="noopener noreferrer" class="underline text-tactical-red font-bold">$1</a>'
+                    '<a href="$1" target="_blank" rel="noopener noreferrer" class="underline text-tactical-red font-bold">Falar com especialista no WhatsApp</a>'
                 );
                 safe = safe.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
                 return safe;
@@ -488,11 +488,10 @@
                 }
             }
 
-            function productSummary(key, withCta) {
+            function productSummary(key) {
                 const p = products[key];
                 const base = `${p.name}: ${p.lumens} lumens, ${p.candela} candela, alcance de ${p.alcance}, autonomia de ${p.autonomia}, construcao em ${p.material} e vedacao ${p.waterproof}. Preco atual ${p.preco} (${p.oferta}).`;
-                if (!withCta) return base;
-                return `${base}\nDetalhes tecnicos: ${p.landing}\nFechamento com ${specialistName}: ${waLink(key)}`;
+                return `${base}\nDetalhes tecnicos: ${p.landing}`;
             }
 
             function localExpertFallback(question) {
@@ -503,6 +502,10 @@
                     const link = waLink(productKey);
                     const productText = productKey ? ` do ${products[productKey].name}` : "";
                     return `Perfeito, vamos acelerar seu fechamento${productText}.\nFale agora com ${specialistName} no WhatsApp (${specialistPhone}): ${link}`;
+                }
+
+                if (/(outra marca|outro produto|nao esta no catalogo|produto fora do catalogo)/.test(q)) {
+                    return `No momento eu so posso orientar com dados oficiais de WILD1, WMLx Gen 3 e WILD2.\nPara um pedido fora desse escopo, te conecto ao ${specialistName}: ${waLink(productKey)}`;
                 }
 
                 if (/(lente|quebra|fragil|resiste|durabil|impact|queda|aluminio|nylon|corpo)/.test(q)) {
@@ -518,7 +521,7 @@
                 }
 
                 if (/(pistola compacta|porte|velado|compacta|oculto)/.test(q)) {
-                    return `Para pistola compacta e porte, o WILD1 costuma ser o melhor encaixe tecnico por dimensao e custo de entrada.\n${productSummary("wild1", false)}`;
+                    return `Para pistola compacta e porte, o WILD1 costuma ser o melhor encaixe tecnico por dimensao e custo de entrada.\n${productSummary("wild1")}`;
                 }
 
                 if (/(autonomia|bateria|duracao|pilha|tempo ligado)/.test(q)) {
@@ -534,7 +537,7 @@
                 }
 
                 if (productKey) {
-                    return productSummary(productKey, true);
+                    return productSummary(productKey);
                 }
 
                 return `Consigo te orientar como consultora tecnico-comercial, sem enrolacao.\nMe diga so 2 pontos:\n1) Plataforma principal (pistola, PCC ou rifle)\n2) Prioridade (alcance, autonomia, resistencia ou preco)\nCom isso eu te entrego o modelo ideal e, se fizer sentido, ja conecto voce ao ${specialistName} para fechar compra.`;
@@ -613,7 +616,7 @@
 
             addMessage(
                 "bot",
-                formatBotMessage(`Sou a PETRAM GUNS IA. Atuo como consultora tecnica e comercial para WILD1, WMLx Gen 3 e WILD2.\nPosso te ajudar com comparativo real, resistencia do equipamento e recomendacao por cenario.\nSe voce estiver em fase de compra, te conecto direto ao ${specialistName}: ${waLink("wmlx")}`),
+                formatBotMessage(`Sou a PETRAM GUNS IA. Atuo como consultora tecnica e comercial para WILD1, WMLx Gen 3 e WILD2.\nPosso te ajudar com comparativo real, resistencia do equipamento e recomendacao por cenario.`),
                 true
             );
         })();
@@ -621,5 +624,6 @@
 
 </body>
 </html>
+
 
 

@@ -37,7 +37,7 @@ const SYSTEM_INSTRUCTIONS = [
   "Se houver intencao de compra, encaminhe para WhatsApp do especialista:",
   `- ${SPECIALIST_NAME}: https://wa.me/${SPECIALIST_WA}`,
   "Use respostas objetivas, confiantes, com recomendacao justificada por cenario de uso.",
-  "Mantenha foco comercial sem parecer robótico."
+  "Mantenha foco comercial sem parecer robotico."
 ].join("\n");
 
 function normalize(text) {
@@ -58,7 +58,7 @@ function detectProduct(text) {
 
 function isBuyIntent(text) {
   const t = normalize(text);
-  return /(quero comprar|vou comprar|fechar compra|como comprar|link de compra|falar com vendedor|falar com especialista|tenho interesse|me atende|quero esse|quero fechar|orcamento|orçamento|prazo|entrega|pagamento|parcelamento)/.test(t);
+  return /(quero comprar|vou comprar|fechar compra|como comprar|link de compra|falar com vendedor|falar com especialista|tenho interesse|me atende|quero esse|quero fechar|orcamento|prazo|entrega|pagamento|parcelamento)/.test(t);
 }
 
 function waLink(productKey) {
@@ -68,7 +68,7 @@ function waLink(productKey) {
       ? "INFORCE WILD2"
       : productKey === "wmlx"
         ? "INFORCE WMLx White Gen 3"
-        : "uma lanterna tática";
+        : "uma lanterna tatica";
   const message = `Ola ${SPECIALIST_NAME}, quero fechar compra da ${productName}. Pode me ajudar?`;
   return `https://wa.me/${SPECIALIST_WA}?text=${encodeURIComponent(message)}`;
 }
@@ -114,11 +114,19 @@ function localFallback(question) {
     return "Para rifle/PCC com foco em alcance + autonomia, WMLx White Gen 3 e a principal recomendacao (1100 lumens, 25.000 candela, 316m, 2h).";
   }
 
+  if (/(outra marca|outro produto|fora do catalogo|nao tenho no catalogo)/.test(q)) {
+    return `No momento so tenho dados oficiais de WILD1, WMLx Gen 3 e WILD2. Para pedido fora desse escopo, falo com ${SPECIALIST_NAME}: ${waLink(productKey)}`;
+  }
+
   return [
     "Posso te orientar em modo tecnico-comercial com recomendacao objetiva.",
-    "Me diga: plataforma principal (pistola, PCC ou rifle) e prioridade (alcance, autonomia, resistencia ou preco).",
-    `Se ja estiver em compra: ${waLink(productKey)}`
+    "Me diga: plataforma principal (pistola, PCC ou rifle) e prioridade (alcance, autonomia, resistencia ou preco)."
   ].join("\n");
+}
+
+function needsHumanSupport(answer) {
+  const t = normalize(answer || "");
+  return /(nao tenho|nao sei|sem confirmacao|nao ha|validacao humana|confirmar com especialista|nao consta|fora do escopo|fora de escopo|fora desse escopo)/.test(t);
 }
 
 function mapHistory(history) {
@@ -196,8 +204,15 @@ module.exports = async (req, res) => {
       answer = localFallback(question);
     }
 
-    if (isBuyIntent(question) && !/wa\.me\/\d+/.test(answer)) {
-      answer += `\n\nFechamento direto com ${SPECIALIST_NAME} (${SPECIALIST_PHONE}): ${waLink(detectProduct(question))}`;
+    const buyIntent = isBuyIntent(question);
+    const unknownInfo = needsHumanSupport(answer);
+
+    if (!buyIntent && !unknownInfo) {
+      answer = answer.replace(/https:\/\/wa\.me\/[^\s<]+/g, "").trim();
+    }
+
+    if ((buyIntent || unknownInfo) && !/wa\.me\/\d+/.test(answer)) {
+      answer += `\n\nContato ${SPECIALIST_NAME} (${SPECIALIST_PHONE}): ${waLink(detectProduct(question))}`;
     }
 
     return res.status(200).json({ answer });
@@ -207,3 +222,4 @@ module.exports = async (req, res) => {
     });
   }
 };
+
