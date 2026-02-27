@@ -7,37 +7,35 @@ const SPECIALIST_PHONE = "+55 51 9552-7203";
 const SPECIALIST_WA = "555195527203";
 
 const CATALOG_CONTEXT = [
-  "Catalogo autorizado Petram Guns (nao indicar produtos fora desta lista):",
+  "Catalogo tecnico autorizado (somente estes 3 produtos):",
   "1) INFORCE WILD1",
-  "- 1000 lumens, 25.000 candela, alcance 312m, autonomia 1,5h, CR123.",
-  "- Construido em aluminio 6061-T6 com anodizacao MIL-SPEC.",
+  "- 1000 lumens, 25.000 candela, alcance 312m, autonomia 1,5h.",
+  "- Montagem em trilho 1913 ou universal.",
+  "- Corpo em aluminio 6061-T6 com anodizacao MIL-SPEC.",
   "- Vedacao: ate 20m.",
-  "- Preco/oferta: R$ 1.900,00 (32% OFF).",
   "",
   "2) INFORCE WMLx White Gen 3",
-  "- 1100 lumens, 25.000 candela, alcance 316m, autonomia 2h em 2x CR123A.",
-  "- Corpo em nylon reforcado em fibra de vidro.",
+  "- 1100 lumens, 25.000 candela, alcance 316m, autonomia 2h com 2x CR123A.",
+  "- Corpo em nylon reforcado com fibra de vidro.",
+  "- Montagem em trilho MIL-STD-1913.",
   "- Vedacao: ate 20m.",
-  "- Preco/oferta: R$ 2.099,00 (15% OFF).",
-  "- Perfil principal: rifle/PCC e usuarios que priorizam autonomia + performance.",
   "",
   "3) INFORCE WILD2",
   "- 1000 lumens, 25.000 candela, alcance 316m, autonomia 1,5h.",
-  "- Construido em aluminio 6061-T6 anodizado tipo III.",
-  "- Vedacao: ate 20m.",
-  "- Preco/oferta: R$ 2.290,00 (28% OFF)."
+  "- Montagem em trilho 1913 ou Glock Universal.",
+  "- Corpo em aluminio 6061-T6 com anodizacao tipo III.",
+  "- Vedacao: ate 20m."
 ].join("\n");
 
 const SYSTEM_INSTRUCTIONS = [
   "Voce e a PETRAM GUNS IA.",
   "Responda sempre em portugues brasileiro.",
-  "Postura: especialista tecnica + consultora comercial de alta conversao.",
-  "Nunca invente dados, nunca chute especificacoes e nunca recomende produtos fora do catalogo autorizado.",
-  "Quando faltar dado, diga claramente que nao ha confirmacao no catalogo e ofereca validacao humana.",
-  "Se houver intencao de compra, encaminhe para WhatsApp do especialista:",
-  `- ${SPECIALIST_NAME}: https://wa.me/${SPECIALIST_WA}`,
-  "Use respostas objetivas, confiantes, com recomendacao justificada por cenario de uso.",
-  "Mantenha foco comercial sem parecer robotico."
+  "Escopo obrigatorio: SOMENTE perguntas tecnicas sobre WILD1, WMLx Gen 3 e WILD2.",
+  "Nao responda assuntos fora do escopo tecnico dos 3 produtos.",
+  "Se a pergunta fugir do escopo tecnico, responda educadamente e direcione para o especialista no WhatsApp.",
+  "Se faltar informacao tecnica confirmada, diga explicitamente que nao tem confirmacao e direcione para o especialista.",
+  "Nunca invente especificacoes e nunca recomende produtos fora do catalogo autorizado.",
+  "Respostas curtas, objetivas e tecnicas."
 ].join("\n");
 
 function normalize(text) {
@@ -61,6 +59,16 @@ function isBuyIntent(text) {
   return /(quero comprar|vou comprar|fechar compra|como comprar|link de compra|falar com vendedor|falar com especialista|tenho interesse|me atende|quero esse|quero fechar|orcamento|prazo|entrega|pagamento|parcelamento)/.test(t);
 }
 
+function isTechnicalScope(text) {
+  const t = normalize(text);
+  const hasProduct = /(wild1|wild2|wmlx|gen 3|inforce)/.test(t);
+  const technicalIntent = /(lumen|candela|alcance|distancia|autonomia|bateria|cr123|montagem|trilho|1913|glock|universal|material|aluminio|nylon|vedacao|ipx|agua|peso|comprimento|diametro|dimens|paddle|switch|ambidestro|momentaneo|constante|estrobo|lockout|feixe|hotspot|spill|resistencia|durabilidade|operacao|instalacao|manual|especifica)/.test(t);
+  const nonTechnicalIntent = /(preco|valor|desconto|oferta|cupom|pagamento|parcel|pix|boleto|frete|envio|entrega|prazo|chega|devolucao|troca|site|loja|endereco|horario)/.test(t);
+  if (nonTechnicalIntent && !technicalIntent) return false;
+  if (technicalIntent) return true;
+  return hasProduct && !nonTechnicalIntent;
+}
+
 function waLink(productKey) {
   const productName = productKey === "wild1"
     ? "INFORCE WILD1"
@@ -69,18 +77,47 @@ function waLink(productKey) {
       : productKey === "wmlx"
         ? "INFORCE WMLx White Gen 3"
         : "uma lanterna tatica";
-  const message = `Ola ${SPECIALIST_NAME}, quero fechar compra da ${productName}. Pode me ajudar?`;
+  const message = `Ola ${SPECIALIST_NAME}, quero atendimento especializado sobre ${productName}. Pode me ajudar?`;
   return `https://wa.me/${SPECIALIST_WA}?text=${encodeURIComponent(message)}`;
+}
+
+function outOfScopeMessage(productKey) {
+  return `Eu respondo somente perguntas tecnicas sobre WILD1, WMLx Gen 3 e WILD2. Para assuntos fora desse escopo, fale com o especialista: ${waLink(productKey)}`;
 }
 
 function extractGeminiText(payload) {
   const parts = payload?.candidates?.[0]?.content?.parts;
   if (!Array.isArray(parts)) return "";
-  const text = parts
+  return parts
     .map((part) => (typeof part?.text === "string" ? part.text : ""))
     .join("\n")
     .trim();
-  return text;
+}
+
+function containsWaLink(text) {
+  return /wa\.me\/\d+/.test(text || "");
+}
+
+function stripWaLinks(text) {
+  return (text || "").replace(/https:\/\/wa\.me\/[^\s<]+/g, "").trim();
+}
+
+function needsHumanSupport(answer) {
+  const t = normalize(answer || "");
+  return /(nao tenho|nao sei|sem confirmacao|nao ha|validacao humana|confirmar com especialista|nao consta|fora do escopo|fora de escopo|fora desse escopo)/.test(t);
+}
+
+function productSummary(productKey) {
+  if (productKey === "wild1") {
+    return "INFORCE WILD1: 1000 lumens, 25.000 candela, alcance 312m, autonomia 1,5h, aluminio 6061-T6 e vedacao ate 20m.";
+  }
+  if (productKey === "wmlx") {
+    return "INFORCE WMLx White Gen 3: 1100 lumens, 25.000 candela, alcance 316m, autonomia 2h em 2x CR123A, nylon reforcado e vedacao ate 20m.";
+  }
+  if (productKey === "wild2") {
+    return "INFORCE WILD2: 1000 lumens, 25.000 candela, alcance 316m, autonomia 1,5h, aluminio 6061-T6 e vedacao ate 20m.";
+  }
+  return "";
 }
 
 function localFallback(question) {
@@ -88,45 +125,48 @@ function localFallback(question) {
   const productKey = detectProduct(q);
 
   if (isBuyIntent(q)) {
-    return `Perfeito, vamos para fechamento. Fale com ${SPECIALIST_NAME} no WhatsApp (${SPECIALIST_PHONE}): ${waLink(productKey)}`;
+    return `Perfeito. Para fechamento, fale com ${SPECIALIST_NAME} (${SPECIALIST_PHONE}): ${waLink(productKey)}`;
   }
 
-  if (/(lente|quebra|fragil|resiste|durabil|impact|queda|aluminio|nylon|corpo)/.test(q)) {
-    return [
-      "Pergunta importante.",
-      "WMLx Gen 3 usa corpo em nylon reforcado com fibra de vidro, resistente para uso operacional.",
-      "WILD1 e WILD2 usam aluminio 6061-T6 com anodizacao MIL-SPEC/tipo III.",
-      "Os 3 modelos tem vedacao ate 20m.",
-      "Se seu foco for rifle com autonomia maior e robustez geral, a recomendacao tende ao WMLx Gen 3."
-    ].join("\n");
+  if (!isTechnicalScope(q)) {
+    return outOfScopeMessage(productKey);
   }
 
   if (/(compar|diferenc|vs|versus|qual melhor)/.test(q)) {
     return [
-      "Comparativo rapido:",
-      "- WILD1: entrada mais agressiva de preco para pistola compacta.",
-      "- WMLx White Gen 3: 1100 lumens e 2h de autonomia, opcao mais equilibrada para performance e uso em rifle/PCC.",
-      "- WILD2: perfil premium profissional para pistola."
+      "Comparativo tecnico rapido:",
+      "- WILD1: foco em pistola compacta, 1000 lumens, 312m, 1,5h.",
+      "- WMLx Gen 3: 1100 lumens, 316m e 2h, foco em rifle/PCC.",
+      "- WILD2: 1000 lumens, 316m, 1,5h, perfil profissional multi-plataforma."
     ].join("\n");
   }
 
-  if (/(rifle|carabina|pcc|alcance|autonomia)/.test(q)) {
-    return "Para rifle/PCC com foco em alcance + autonomia, WMLx White Gen 3 e a principal recomendacao (1100 lumens, 25.000 candela, 316m, 2h).";
+  if (/(lente|quebra|fragil|resiste|durabil|impact|queda|material|aluminio|nylon)/.test(q)) {
+    return [
+      "Resumo tecnico de resistencia:",
+      "- WMLx Gen 3: nylon reforcado com fibra de vidro.",
+      "- WILD1/WILD2: aluminio 6061-T6 com anodizacao MIL-SPEC/tipo III.",
+      "- Os 3 modelos: vedacao ate 20m."
+    ].join("\n");
   }
 
-  if (/(outra marca|outro produto|fora do catalogo|nao tenho no catalogo)/.test(q)) {
-    return `No momento so tenho dados oficiais de WILD1, WMLx Gen 3 e WILD2. Para pedido fora desse escopo, falo com ${SPECIALIST_NAME}: ${waLink(productKey)}`;
+  if (/(autonomia|bateria|duracao|pilha|tempo ligado)/.test(q)) {
+    return "Autonomia: WMLx Gen 3 = 2h (2x CR123A); WILD1 = 1,5h; WILD2 = 1,5h.";
   }
 
-  return [
-    "Posso te orientar em modo tecnico-comercial com recomendacao objetiva.",
-    "Me diga: plataforma principal (pistola, PCC ou rifle) e prioridade (alcance, autonomia, resistencia ou preco)."
-  ].join("\n");
-}
+  if (/(lumen|potencia|candela|feixe|alcance|distancia)/.test(q)) {
+    return "Saida e alcance: WMLx Gen 3 = 1100 lm / 25.000 cd / 316m; WILD1 = 1000 lm / 25.000 cd / 312m; WILD2 = 1000 lm / 25.000 cd / 316m.";
+  }
 
-function needsHumanSupport(answer) {
-  const t = normalize(answer || "");
-  return /(nao tenho|nao sei|sem confirmacao|nao ha|validacao humana|confirmar com especialista|nao consta|fora do escopo|fora de escopo|fora desse escopo)/.test(t);
+  if (/(trilho|montagem|1913|glock|universal|paddle|ambidestro|switch|estrobo|momentaneo|constante|lockout)/.test(q)) {
+    return "Montagem e controles: WILD1/WILD2 aceitam 1913 (WILD2 tambem Glock Universal); WMLx Gen 3 integra clamp MIL-STD-1913; os modelos operam com acionamento lateral e modos tecnicos conforme manual.";
+  }
+
+  if (productKey) {
+    return productSummary(productKey);
+  }
+
+  return "Posso responder somente conteudo tecnico de WILD1, WMLx Gen 3 e WILD2. Pergunte sobre potencia, alcance, autonomia, montagem, material, vedacao ou operacao.";
 }
 
 function mapHistory(history) {
@@ -193,6 +233,14 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: "Pergunta obrigatoria" });
     }
 
+    const productKey = detectProduct(question);
+    const buyIntent = isBuyIntent(question);
+    const inScope = isTechnicalScope(question);
+
+    if (!buyIntent && !inScope) {
+      return res.status(200).json({ answer: outOfScopeMessage(productKey) });
+    }
+
     let answer = "";
     try {
       answer = (await askGemini(question, history)) || "";
@@ -204,22 +252,20 @@ module.exports = async (req, res) => {
       answer = localFallback(question);
     }
 
-    const buyIntent = isBuyIntent(question);
     const unknownInfo = needsHumanSupport(answer);
 
     if (!buyIntent && !unknownInfo) {
-      answer = answer.replace(/https:\/\/wa\.me\/[^\s<]+/g, "").trim();
+      answer = stripWaLinks(answer);
     }
 
-    if ((buyIntent || unknownInfo) && !/wa\.me\/\d+/.test(answer)) {
-      answer += `\n\nContato ${SPECIALIST_NAME} (${SPECIALIST_PHONE}): ${waLink(detectProduct(question))}`;
+    if ((buyIntent || unknownInfo) && !containsWaLink(answer)) {
+      answer += `\n\nFalar com o especialista (${SPECIALIST_PHONE}): ${waLink(productKey)}`;
     }
 
     return res.status(200).json({ answer });
   } catch (_error) {
     return res.status(500).json({
-      answer: "No momento estou sem conexao com a IA generativa. Posso continuar com atendimento tecnico imediato ou te conectar ao Limana: https://wa.me/555195527203"
+      answer: `No momento estou sem conexao com a IA. Eu consigo responder apenas assuntos tecnicos dos 3 produtos. Para apoio humano, fale com o especialista: https://wa.me/${SPECIALIST_WA}`
     });
   }
 };
-

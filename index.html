@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -423,12 +423,26 @@
                 return /(quero comprar|vou comprar|fechar compra|como comprar|link de compra|falar com vendedor|falar com especialista|tenho interesse|me atende|quero esse|quero fechar|orcamento|prazo|entrega|pagamento|parcelamento)/.test(t);
             }
 
+            function isTechnicalScope(text) {
+                const t = normalize(text);
+                const hasProduct = /(wild1|wild2|wmlx|gen 3|inforce)/.test(t);
+                const technicalIntent = /(lumen|candela|alcance|distancia|autonomia|bateria|cr123|montagem|trilho|1913|glock|universal|material|aluminio|nylon|vedacao|ipx|agua|peso|comprimento|diametro|dimens|paddle|switch|ambidestro|momentaneo|constante|estrobo|lockout|feixe|hotspot|spill|resistencia|durabilidade|operacao|instalacao|manual|especifica)/.test(t);
+                const nonTechnicalIntent = /(preco|valor|desconto|oferta|cupom|pagamento|parcel|pix|boleto|frete|envio|entrega|prazo|chega|devolucao|troca|site|loja|endereco|horario)/.test(t);
+                if (nonTechnicalIntent && !technicalIntent) return false;
+                if (technicalIntent) return true;
+                return hasProduct && !nonTechnicalIntent;
+            }
+
             function waLink(productKey) {
                 const product = productKey ? products[productKey] : null;
                 const message = product
                     ? `Ola ${specialistName}, quero comprar a ${product.name}. Pode me ajudar com fechamento?`
                     : `Ola ${specialistName}, quero atendimento para escolher a melhor lanterna e fechar compra.`;
                 return `https://wa.me/${specialistWa}?text=${encodeURIComponent(message)}`;
+            }
+
+            function outOfScopeReply(productKey) {
+                return `Eu respondo somente perguntas tecnicas sobre WILD1, WMLx Gen 3 e WILD2.\nPara qualquer assunto fora desse escopo, clique em: ${waLink(productKey)}`;
             }
 
             function escapeHtml(text) {
@@ -445,7 +459,7 @@
                 safe = safe.replace(/\n/g, "<br>");
                 safe = safe.replace(
                     /(https:\/\/wa\.me\/[^\s<]+)/g,
-                    '<a href="$1" target="_blank" rel="noopener noreferrer" class="underline text-tactical-red font-bold">Falar com especialista no WhatsApp</a>'
+                    '<a href="$1" target="_blank" rel="noopener noreferrer" class="underline text-tactical-red font-bold">Falar com o especialista</a>'
                 );
                 safe = safe.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
                 return safe;
@@ -490,7 +504,7 @@
 
             function productSummary(key) {
                 const p = products[key];
-                const base = `${p.name}: ${p.lumens} lumens, ${p.candela} candela, alcance de ${p.alcance}, autonomia de ${p.autonomia}, construcao em ${p.material} e vedacao ${p.waterproof}. Preco atual ${p.preco} (${p.oferta}).`;
+                const base = `${p.name}: ${p.lumens} lumens, ${p.candela} candela, alcance de ${p.alcance}, autonomia de ${p.autonomia}, construcao em ${p.material} e vedacao ${p.waterproof}.`;
                 return `${base}\nDetalhes tecnicos: ${p.landing}`;
             }
 
@@ -504,8 +518,8 @@
                     return `Perfeito, vamos acelerar seu fechamento${productText}.\nFale agora com ${specialistName} no WhatsApp (${specialistPhone}): ${link}`;
                 }
 
-                if (/(outra marca|outro produto|nao esta no catalogo|produto fora do catalogo)/.test(q)) {
-                    return `No momento eu so posso orientar com dados oficiais de WILD1, WMLx Gen 3 e WILD2.\nPara um pedido fora desse escopo, te conecto ao ${specialistName}: ${waLink(productKey)}`;
+                if (!isTechnicalScope(q)) {
+                    return outOfScopeReply(productKey);
                 }
 
                 if (/(lente|quebra|fragil|resiste|durabil|impact|queda|aluminio|nylon|corpo)/.test(q)) {
@@ -532,15 +546,11 @@
                     return `Potencia e alcance:\n- WMLx Gen 3: 1100 lumens / 25.000 candela / 316m\n- WILD1: 1000 lumens / 25.000 candela / 312m\n- WILD2: 1000 lumens / 25.000 candela / 316m`;
                 }
 
-                if (/(preco|valor|oferta|desconto|parcel|pagamento)/.test(q)) {
-                    return `Ofertas atuais:\n- WILD1: R$ 1.900,00 (32% OFF)\n- WMLx Gen 3: R$ 2.099,00 (15% OFF)\n- WILD2: R$ 2.290,00 (28% OFF)\nSe quiser, eu ja te direciono para fechamento no WhatsApp do ${specialistName}.`;
-                }
-
                 if (productKey) {
                     return productSummary(productKey);
                 }
 
-                return `Consigo te orientar como consultora tecnico-comercial, sem enrolacao.\nMe diga so 2 pontos:\n1) Plataforma principal (pistola, PCC ou rifle)\n2) Prioridade (alcance, autonomia, resistencia ou preco)\nCom isso eu te entrego o modelo ideal e, se fizer sentido, ja conecto voce ao ${specialistName} para fechar compra.`;
+                return `Eu atuo somente com suporte tecnico de WILD1, WMLx Gen 3 e WILD2.\nMe diga o modelo e o tema tecnico (potencia, alcance, autonomia, montagem, material ou vedacao).`;
             }
 
             async function askPetramAI(question) {
@@ -616,7 +626,7 @@
 
             addMessage(
                 "bot",
-                formatBotMessage(`Sou a PETRAM GUNS IA. Atuo como consultora tecnica e comercial para WILD1, WMLx Gen 3 e WILD2.\nPosso te ajudar com comparativo real, resistencia do equipamento e recomendacao por cenario.`),
+                formatBotMessage(`Sou a PETRAM GUNS IA. Eu respondo apenas perguntas tecnicas sobre WILD1, WMLx Gen 3 e WILD2.\nSe a sua pergunta sair desse escopo, eu te direciono para Falar com o especialista.`),
                 true
             );
         })();
